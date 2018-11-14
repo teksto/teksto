@@ -5,15 +5,16 @@ import yaml
 import json
 import time
 from lxml import etree
-from urllib import requests
+from urllib import request
 
 # 抓取ccamc.tangut部分
-sub= 94208
+# sub= 94208
+sub= 94229
 # sup= 100351
-sup= 95000
+sup= 94235
 
 # 时间戳
-tm= time.tem()
+tm= time.time()
 
 # 数组列表转字串
 def ts(arr):
@@ -34,16 +35,17 @@ def rej(data):
 
 # korpo
 def sp(id):
-  ur= 'http://www.ccamc.co/tangut.php?unicode=' +i
-  pg= requests.urlopen(ur).read()
+  ur= 'http://www.ccamc.co/tangut.php?unicode=' +id
+  pg= request.urlopen(ur).read()
   da= etree.HTML(pg)
 
   # 目标数据
-  o1= 'Tg' +i
+  o1= 'Tg' +id
   s1= ts(da.xpath('//*[p="序號"]/p[2]/text()'))
   m0= ts(da.xpath('//code/preceding-sibling::text()'))
   m1= m0.replace(u'\xa0',u'')
-  m11= ts(da.xpath('//p[code]/following-sibling::p[1]/text()'))
+  m10= ts(da.xpath('//p[code]/following-sibling::p[1]/text()'))
+  m11= m10.replace(u'詳細解釋請參考。',u'')
   # m12= ts(da.xpath('//p[code]/following-sibling::p[2]/text()'))
   m2= ts(da.xpath('//code/text()'))
   r1= ts(da.xpath('//*[p="音"]/p[3]/text()'))
@@ -59,14 +61,14 @@ def sp(id):
       "ser": s1,
       "mea": [[m1,m11], m2],
       "rel": [r1, r2, r3],
-      "rime":[]
+      "rime":[],
       "code":[c1, c2, c3]
     },
   }
   # 拼接YAML
   ouy= ''
   # 拼接数组
-  our= [o1, s1, m0, m1, m11, m2, r1, r2, r3, c1, c2, c3]
+  our= [o1, s1, m1, m11, m2, r1, r2, r3, c1, c2, c3]
 
   # 输出
   return our
@@ -74,6 +76,8 @@ def sp(id):
   # return ouy
 
 # 进击的八脚战士
+# rec(['tangut', tm])
+rec(['tangut', 20181115,1])
 for i in range(sub,sup):
   hh= hex(i)[2:]
   rec(sp(hh))
