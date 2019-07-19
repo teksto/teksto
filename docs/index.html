@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <!-- informo gup -->
+  <meta name="author" content="@wolfan">
+  <meta name="keywords" content="🍭">
+  <meta name="description" content="🍭">
+
+  <meta charset="UTF-8">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+
+  <!-- accessibility -->
+  <meta name="Cache-Control" content="no-siteapp">
+  <meta name="format-detection" content="telephone=no">
+
+  <!-- pwa: manifest -->
+  <link rel="manifest" href="manifest.json">
+
+  <!-- pwa: apple -->
+  <meta name="apple-mobile-web-app-title" content="🍏">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="white">
+  <link rel="apple-touch-icon" href="make/logo.png">
+
+  <!-- pwa: windows -->
+  <meta name="application-name" content="🔰">
+  <meta name="msapplication-TitleColor" content="#ffffff">
+  <meta name="msapplication-TitleImage" content="make/logo.png">
+
+  <!-- color and icon -->
+  <meta name="theme-color" content="#ffffff">
+  <link rel="shortcut icon" type="image/png" href="make/logo.png">
+
+  <title>🍭</title>
+
+</head>
+<body>
+  #TEKSTO.container
+
+<!-- serviceworker script -->
+<script>
+  if('serviceWorker' in navigator){
+    navigator.serviceWorker.register('sw.js')
+    .then((reg)=>{console.log('✔: ',reg)})
+    .catch((err)=>{console.log('❌: ',err)})}
+</script>
+</body>
+</html>
