@@ -2,9 +2,9 @@
 <html lang="zh-cmn-Hans">
 <head>
   <!-- informo gup -->
-  <meta name="author" content="@wolfan">
-  <meta name="keywords" content="🍭">
-  <meta name="description" content="🍭">
+  <meta name="author" content="flower@Design">
+  <meta name="keywords" content="🍭,言镜,古今文字集成,今惜文字镜">
+  <meta name="description" content="言鏡：煙塵散灰盡，破碑通古今，一筆橫折勾，鐵線織輿鏡。">
 
   <meta charset="UTF-8">
   <meta name="renderer" content="webkit">
@@ -16,28 +16,53 @@
   <meta name="format-detection" content="telephone=no">
 
   <!-- pwa: manifest -->
-  <link rel="manifest" href="manifest.json">
+  <!-- <link rel="manifest" href="manifest.json"> -->
 
   <!-- pwa: apple -->
-  <meta name="apple-mobile-web-app-title" content="🍏">
+  <meta name="apple-mobile-web-app-title" content=":TekstoSpegulo">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="white">
-  <link rel="apple-touch-icon" href="make/logo.png">
+  <link rel="apple-touch-icon" href="../Materialo/256.png">
 
   <!-- pwa: windows -->
-  <meta name="application-name" content="🔰">
+  <meta name="application-name" content=":TekstoSpegulo">
   <meta name="msapplication-TitleColor" content="#ffffff">
-  <meta name="msapplication-TitleImage" content="make/logo.png">
+  <meta name="msapplication-TitleImage" content="../Materialo/256.png">
 
   <!-- color and icon -->
   <meta name="theme-color" content="#ffffff">
-  <link rel="shortcut icon" type="image/png" href="make/logo.png">
+  <link rel="shortcut icon" type="image/png" href="../Materialo/256.png">
 
-  <title>🍭</title>
+  <title>:TekstoSpegulo</title>
+
+  <style>
+    body{margin: 0 auto; background-color: #f9f9f9;}
+
+    .navbar{width: 100%; border-bottom: 1px solid #f0f0f0; box-shadow: 0 .3rem .5rem #e0e0e0; padding: .6rem 0; background-color: #fff;}
+      .navbar-center{}
+        .item{}
+        .inp-gup{}
+        .inp-gup input{border-style: none; border: 1px solid #f0f0f0; border-radius: .3rem; font-size: 1.2rem; line-height: 1.5rem; padding: .3rem;}
+        .inp-gup button{border-style: none; background-color: none; margin-left: -2.6rem; border: 1px solid #e0e0e0; font-size: 1.2rem; line-height: 1.5rem; border-radius: 0 .3rem .3rem 0; padding: .3rem;}
+    .container{width: 100%; overflow: hidden; display: flex; flex: 1; flex-wrap: inherit;}
+    .card{width: 350px; height: ; background-color: #fff; border-radius: .9rem; border: 1px solid #f0f0f0; padding: .6rem; border: 1px solid #e0e0e0; box-shadow: .3rem .3rem .6rem #e0e0e0;}
+  </style>
 
 </head>
 <body>
-  #TEKSTO.container
+  <div id="Navigado" class="navbar">
+    <div class="navbar-center"></div>
+    <div class="navbar-center inp-gup">
+      <input type="text" id="search" placeholder="Tekstospegulo">
+      <button onclick="search()">🔍</button>
+    </div>
+    <div class="navbar-center"></div>
+  </div>
+
+  <div id="TEKSTO" class="container">
+    <!-- lang card -->
+    <div id="Tangut" class="card"></div>
+  </div>
 
 <!-- serviceworker script -->
 <script>
@@ -45,6 +70,9 @@
     navigator.serviceWorker.register('sw.js')
     .then((reg)=>{console.log('✔: ',reg)})
     .catch((err)=>{console.log('❌: ',err)})}
+  
+  const tangut= document.querySelector('#Tangut');
+  tangut.innerHTML+='The Tangut!'
 </script>
 </body>
 </html>
