@@ -37,42 +37,44 @@
 
   <style>
     body{margin: 0 auto; background-color: #f9f9f9;}
-
-    .navbar{width: 100%; border-bottom: 1px solid #f0f0f0; box-shadow: 0 .3rem .5rem #e0e0e0; padding: .6rem 0; background-color: #fff;}
-      .navbar-center{}
-        .item{}
-        .inp-gup{}
-        .inp-gup input{border-style: none; border: 1px solid #f0f0f0; border-radius: .3rem; font-size: 1.2rem; line-height: 1.5rem; padding: .3rem;}
-        .inp-gup button{border-style: none; background-color: none; margin-left: -2.6rem; border: 1px solid #e0e0e0; font-size: 1.2rem; line-height: 1.5rem; border-radius: 0 .3rem .3rem 0; padding: .3rem;}
-    .container{width: 100%; overflow: hidden; display: flex; flex: 1; flex-wrap: inherit;}
-    .card{width: 350px; height: ; background-color: #fff; border-radius: .9rem; border: 1px solid #f0f0f0; padding: .6rem; border: 1px solid #e0e0e0; box-shadow: .3rem .3rem .6rem #e0e0e0;}
   </style>
 
 </head>
 <body>
-  <div id="Navigado" class="navbar">
-    <div class="navbar-center"></div>
-    <div class="navbar-center inp-gup">
-      <input type="text" id="search" placeholder="Tekstospegulo">
-      <button onclick="search()">🔍</button>
-    </div>
-    <div class="navbar-center"></div>
+
+  <div id="Teksto">
+    <h1>以下为汉字输了测试</h1>
+    <div id="HansFull">...</div>
   </div>
 
-  <div id="TEKSTO" class="container">
-    <!-- lang card -->
-    <div id="Tangut" class="card"></div>
-  </div>
+  <script>
+    // Unicode汉字范围。
+    const hansBase= [0x4e00, 0x9fa5]; // 20902
+    const hansSup= [0x9fa6, 0x9fcb];  // 38
+    const hansExpA= [0x3400, 0x4db5]; // 6582
+    const hansExpB= [0x20000, 0x2a6d6]; // 42711
+    const hansExpC= [0x2a700, 0x2b734]; // 4149
+    const hansExpD= [0x2b740, 0x2b81d]; // 222
+    const hansKaxi= [0x2f00, 0x2fd5]; // 214
+    const hansDict= [0x2e80, 0x2ef3]; // 115
+    const hansComp= [0xf900, 0xfad9]; // 477
+    const hansCoEp= [0x2f800, 0x2fa1d]; // 542
+    const hansPUA_GBK= [0xe815, 0xe86f];  // 81
+    const hansUnit= [0xe400, 0xe5e8]; // 425
+    const hansPUAadd= [0xe600, 0xe6cf]; // 207
+    const hansStroke= [0x31c0, 0x31e3]; // 36
+    const hansStrKripke= [0x2ff0, 0x2ffb]; // 12
+    const hansPh= [0x3105, 0x3120]; // 22
+    const hansPhExp= [0x31a0, 0x31ba]; // 22
+    const hansO= [0x3007]; // 1
 
-<!-- serviceworker script -->
-<script>
-  if('serviceWorker' in navigator){
-    navigator.serviceWorker.register('sw.js')
-    .then((reg)=>{console.log('✔: ',reg)})
-    .catch((err)=>{console.log('❌: ',err)})}
-  
-  const tangut= document.querySelector('#Tangut');
-  tangut.innerHTML+='The Tangut!'
-</script>
+    // output aro
+    const printHans= document.querySelector('#HansFull');
+
+    for(let i=hansBase[0]; i<=hansBase[1]; i++){
+      printHans.innerHTML+= `&#${i}`;
+    }
+  </script>
+
 </body>
 </html>
