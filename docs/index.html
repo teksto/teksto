@@ -37,14 +37,23 @@
 
   <style>
     body{margin: 0 auto; background-color: #f9f9f9;}
+    a{text-decoration: none; color: #0078ff;}
   </style>
 
 </head>
 <body>
 
-  <div id="Teksto">
-    <h1>以下为汉字输了测试</h1>
-    <div id="HansFull">...</div>
+  <div id="Teksto" class="container">
+    <!-- navigation -->
+    <div class="navigation">
+      <a href="javascript: prDiv('zh')" class="item">漢字</a>
+      <a href="javascript: prDiv('kr')" class="item">韓文</a>
+      <a href="#/" class="item">⭕</a>
+    </div>
+
+    <!-- copy to card -->
+    <div id="Hans" class="card"></div>
+    <div id="Korea" class="card">。。。</div>
   </div>
 
   <script>
@@ -67,13 +76,25 @@
     const hansPh= [0x3105, 0x3120]; // 22
     const hansPhExp= [0x31a0, 0x31ba]; // 22
     const hansO= [0x3007]; // 1
+    // Unicode tangut
+    const tangut= [0x17000, 0x187ff];
+    const tangut_Sup= [];
+
+    // Korea
+    // 韩文字母 (1100–11FF) 10进制4352-4607 韩文兼容字母 (3130-318F) 10进制12592-12687 韩文音节 (AC00-D7AF) 10进制44032-55215 目前电脑可显示AC00-D7A3 10进制44032-55203 韩文字母扩展A (A960-A97F) 10进制43360-43391 韩文字母扩展B (D7B0-D7FF) 10进制55216-55295
+    // https://zhuanlan.zhihu.com/p/24197668
+    const krAll= [0xac00,0xd7a3]; // 11172
+
+    // japan
+
+    // CJKN Hans full
+
+    // DajStore
+    const storeOu= 'https://www.jsonstore.io/abd51e6f80bad6a418c8ee869ada3c6e9dad410672cb15343a4c13fec7caad85';
 
     // output aro
-    const printHans= document.querySelector('#HansFull');
-
-    for(let i=hansBase[0]; i<=hansBase[1]; i++){
-      printHans.innerHTML+= `&#${i}`;
-    }
+    const printHans= document.querySelector('#Hans');
+    const printKorea= document.querySelector('#Korea');
   </script>
 
 </body>
