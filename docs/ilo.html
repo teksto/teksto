@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <!-- informo gup -->
+  <meta name="keywords" content="🍇">
+  <meta name="description" content="🍇">
+
+  <meta charset="UTF-8">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+
+  <!-- ne baidu transkodo -->
+  <meta name="Cache-Control" content="no-siteapp">
+
+  <title>: ilo</title>
+
+  <!-- icons -->
+  <!-- <link rel="icon" href="make/logo.png">
+  <link rel="apple-touch-icon" href="make/logo.png">
+
+  <link rel="stylesheet" href="core/🍇.css"> -->
+
+  <style>
+    @font-face {
+      font-family: tg;
+      src: url('res/font/tangut.woff2') format('woff2');
+      font-style: normal;
+      font-weight: normal;
+      font-display: swap;
+    }
+    .container{
+      display: grid;
+      grid-template-columns: 20vw auto 30vw;
+      font-family: tg;
+    }
+    .item{
+      padding: .3rem;
+      font-size: 1.8rem;
+    }
+    .fxd{
+      position: fixed;
+    }
+    #Parto{width: 20vw;}
+    #Redaktejo{width: 30vw;}
+
+    #bngup{
+      right: 0;
+      bottom: 0;
+      margin: 1.2rem;
+      position: absolute;
+    }
+  </style>
+
+</head>
+<body>
+  <div id="bngup">
+    <button onclick="Savi()">Savi</button>
+    <button onclick="Tiri()">Tiri</button>
+  </div>
+
+  <div id="ILO" class="container">
+    <div class="item">
+      <div id="Parto" class="fxd"></div>
+    </div>
+    <div id="Ciuj" class="item" contenteditable="true"></div>
+    <div class="item">
+      <div id="Redaktejo" class="fxd" contenteditable="true">R</div>
+    </div>
+  </div>
+
+<script>
+  for(let i=0x17000; i<=0x187ff; i++){
+    document.querySelector('#Ciuj').innerHTML+= `&#${i}`;
+  }
+  for(let i=0x18800; i<=0x18aff; i++){
+    document.querySelector('#Parto').innerHTML+= `&#${i}`;
+  }
+
+  function Savi(){
+    tgPlena= document.querySelector('#Parto').innerText;
+    tgEdia= document.querySelector('#Redaktejo').innerText;
+    localStorage.setItem('tgPlena', tgPlena);
+    localStorage.setItem('tgEdia',tgEdia);
+  }
+  function Tiri(){
+    document.querySelector('#Parto').innerText= localStorage.tgPlena;
+    document.querySelector('#Redaktejo').innerText= localStorage.tgEdia;
+  }
+  Tiri()
+</script>
+</body>
+</html>
