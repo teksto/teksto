@@ -38,56 +38,65 @@
       padding: .3rem;
       font-size: 1.8rem;
     }
-    .fxd{
-      position: fixed;
+    
+    #Parto{
+      text-indent: 5rem;
     }
-    #Parto{width: 20vw;}
-    #Redaktejo{width: 30vw;}
+    #Parto, #Redaktejo{
+      top: .3rem;
+      position: sticky;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      height: 98vh;
+    }
 
     #bngup{
-      right: 0;
-      bottom: 0;
-      margin: 1.2rem;
-      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 90;
+      margin: .3rem;
+      position: fixed;
     }
   </style>
 
 </head>
 <body>
   <div id="bngup">
+    <button onclick="Tiri()">P</button>
     <button onclick="Savi()">Savi</button>
-    <button onclick="Tiri()">Tiri</button>
   </div>
 
-  <div id="ILO" class="container">
-    <div class="item">
-      <div id="Parto" class="fxd"></div>
-    </div>
+  <div id="ilo" class="container">
+    <div id="Parto" class="item"></div>
     <div id="Ciuj" class="item" contenteditable="true"></div>
-    <div class="item">
-      <div id="Redaktejo" class="fxd" contenteditable="true">R</div>
-    </div>
+    <div id="Redaktejo" class="item" contenteditable="true"></div>
   </div>
 
 <script>
-  for(let i=0x17000; i<=0x187ff; i++){
-    document.querySelector('#Ciuj').innerHTML+= `&#${i}`;
-  }
   for(let i=0x18800; i<=0x18aff; i++){
     document.querySelector('#Parto').innerHTML+= `&#${i}`;
   }
 
+  document.querySelector('#Ciuj').innerText= localStorage.tgPlena;
+  document.querySelector('#Redaktejo').innerText= localStorage.tgEdia;
+
+  function printAll(){
+    for(let i=0x17000; i<=0x187ff; i++){
+      document.querySelector('#Ciuj').innerHTML+= `&#${i}`;
+    }
+  }
   function Savi(){
-    tgPlena= document.querySelector('#Parto').innerText;
+    tgPlena= document.querySelector('#Ciuj').innerText;
     tgEdia= document.querySelector('#Redaktejo').innerText;
     localStorage.setItem('tgPlena', tgPlena);
     localStorage.setItem('tgEdia',tgEdia);
   }
+
   function Tiri(){
-    document.querySelector('#Parto').innerText= localStorage.tgPlena;
-    document.querySelector('#Redaktejo').innerText= localStorage.tgEdia;
+    console.log('restart');
+    printAll();
   }
-  Tiri()
+
 </script>
 </body>
 </html>
