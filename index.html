@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <!-- informo gup -->
+    <meta name="author" content="@wolfan" />
+    <meta name="keywords" content="🥬" />
+    <meta name="description" content="🥬" />
+
+    <meta charset="UTF-8" />
+    <meta name="renderer" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <meta name="screen-orientation" content="portrait" />
+    <meta name="full-screen" content="yes" />
+
+    <!-- accessibility -->
+    <meta name="Cache-Control" content="no-siteapp" />
+    <meta name="format-detection" content="telephone=no" />
+    <!-- QQ browser -->
+    <meta name="x5-orientation" content="portrait" />
+    <meta name="x5-fullscreen" content="true" />
+    <meta name="x5-page-mode" content="app" />
+    <!-- UC -->
+
+    <!-- pwa: manifest -->
+    <link rel="manifest" href="manifest.json" />
+
+    <!-- pwa: apple -->
+    <meta name="apple-mobile-web-app-title" content="🥬" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="white" />
+    <link rel="apple-touch-icon" href="res/Cabbage.png" />
+
+    <!-- pwa: windows -->
+    <meta name="application-name" content="🥬" />
+    <meta name="msapplication-TitleColor" content="#ffffff" />
+    <meta name="msapplication-TitleImage" content="res/Cabbage.png" />
+
+    <!-- color and icon -->
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="shortcut icon" type="image/png" href="res/Cabbage.png" />
+
+    <title>：晚菘</title>
+
+    <link rel="stylesheet" href="core/Cabbage.css" />
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-router/dist/vue-router.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jsbarcode/dist/JsBarcode.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode_js/qrcode.min.js"></script> -->
+  </head>
+  <body>
+    <header>
+      <h1 id="logo" lang="y">晚菘</h1>
+      <div id="navigado">
+        <!-- tab: operation. -->
+        <input type="radio" name="navigado" id="ciuj" hidden checked>
+        <input type="radio" name="navigado" id="sek" hidden>
+        <input type="radio" name="navigado" id="ejo" hidden>
+        <!-- tab: label for input:radio -->
+        <label for="ciuj">Ĉiuj</label>
+        <label for="sek">Sekvenco</label>
+        <label for="ejo">Ejo</label>
+        <!-- tab: view cat -->
+        <div id="nav-card">
+          <!-- to projekto -->
+          <div class="karto" data-ek="karto1" id="vuenavs">
+            <a :href="ns.lk" class="label" v-for="ns in navdt">{{ns.ln}}</a>
+          </div>
+          <!-- to website links -->
+          <div class="karto" data-ek="karto2">
+            <a href="https://shimo.im/" class="label">Shimo</a>
+          </div>
+        </div>
+      </div>
+    </header>
+    
+    <!-- flanko -->
+    <bar>
+      <a href="javascript:(function () { var script = document.createElement('script'); script.src='https://cdn.jsdelivr.net/npm/eruda'; document.body.appendChild(script); script.onload = function () { eruda.init() } })();" id="Console"></a>
+      <span lang="k">灌園鬻蔬，宜然自得。</span>
+    </bar>
+
+    <!-- view block and vue print. -->
+    <div id="Cabbage" class="container">
+      <!-- qr & qrbar show -->
+      <div id="Rulumu">
+        <!-- qrbar -->
+        <div id="qrbar" class="row"></div>
+        <!-- qr -->
+        <div id="qrs" class="row">
+          <div class="tkj"><a href="#/Kalendaro"><img src="res/s3/512.png"></a></div>
+          <div class="tkj"><a href="#/Teksto"><img src="res/tg/512.png"></a></div>
+          <div class="tkj"><a href="#/"><img src="res/Cabbage.png"></a></div>
+          <div class="tkj"><a href="papago.html"><img src="res/Papago.png"></a></div>
+          <div class="tkj"><a href="ilo.html"><img src="res/Lumo.png"></a></div>
+          <div class="tkj"><a href="insigno.html"><img src="res/Army.png"></a></div>
+          <div class="tkj"><a href="lp.html"><img src="res/Compass.png"></a></div>
+          <div class="tkj"><a href="Kalendaro.html"><img src="res/Kalendaro.png"></a></div>
+        </div>
+      </div>
+
+      <!-- view print areo -->
+      <div id="Presi">
+        <!-- <p>記述歲月，書寫春夏秋冬。</p> -->
+        {{vuepre}}
+
+        <!-- <jsx-dom></jsx-dom> -->
+      </div>
+      
+      <!-- tmp insertion -->
+      <p style="height: 1024px;" id="ti">
+        <qrb></qrb>
+        <!-- <jsxm></jsxm> -->
+        <router-link to="/papago">Go to Foo</router-link>
+        <router-view></router-view>
+      </p>
+      <!-- tmp End! -->
+      
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-router/dist/vue-router.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jsbarcode/dist/JsBarcode.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode_js/qrcode.min.js"></script>
+    <!--
+    <script src="core/laboratorio/vue.js"></script>
+    <script src="core/laboratorio/JsBarcode.all.min.js"></script>
+    <script src="core/laboratorio/qrcode.min.js"></script>
+    -->
+    <script src="core/Cabbage.js"></script>
+    <!-- serviceworker script -->
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("sw.js")
+          .then(reg => {console.log("✔: ", reg);})
+          .catch(err => {console.log("❌: ", err);});
+      }
+
+      // Qr & Qrbar dome.
+      JsBarcode(".qrbl", "null", {
+        lineColor: "#3f3f3f",
+        width: 1.2,
+        height: 35,
+        displayValue: false
+      }).init();
+    </script>
+  </body>
+</html>
