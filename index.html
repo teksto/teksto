@@ -1,153 +1,162 @@
 <!DOCTYPE html>
 <html lang="zh-cmn-Hans">
-  <head>
-    <!-- informo gup -->
-    <meta name="author" content="@wolfan" />
-    <meta name="keywords" content="🥬" />
-    <meta name="description" content="🥬" />
+<head>
+  <!-- informo gup -->
+  <meta name="author" content="flower@Design">
+  <meta name="keywords" content="🍭,言镜,古今文字集成,今惜文字镜">
+  <meta name="description" content="言鏡：煙塵散灰盡，破碑通古今，一筆橫折勾，鐵線織輿鏡。">
 
-    <meta charset="UTF-8" />
-    <meta name="renderer" content="webkit" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1" />
-    <meta
-      name="viewport"
-      content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"
-    />
-    <meta name="screen-orientation" content="portrait" />
-    <meta name="full-screen" content="yes" />
+  <meta charset="UTF-8">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 
-    <!-- accessibility -->
-    <meta name="Cache-Control" content="no-siteapp" />
-    <meta name="format-detection" content="telephone=no" />
-    <!-- QQ browser -->
-    <meta name="x5-orientation" content="portrait" />
-    <meta name="x5-fullscreen" content="true" />
-    <meta name="x5-page-mode" content="app" />
-    <!-- UC -->
+  <!-- accessibility -->
+  <meta name="Cache-Control" content="no-siteapp">
+  <meta name="format-detection" content="telephone=no">
 
-    <!-- pwa: manifest -->
-    <link rel="manifest" href="manifest.json" />
+  <!-- pwa: manifest -->
+  <!-- <link rel="manifest" href="manifest.json"> -->
 
-    <!-- pwa: apple -->
-    <meta name="apple-mobile-web-app-title" content="🥬" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="white" />
-    <link rel="apple-touch-icon" href="res/Cabbage.png" />
+  <!-- pwa: apple -->
+  <meta name="apple-mobile-web-app-title" content=":TekstoSpegulo">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="white">
+  <link rel="apple-touch-icon" href="../Materialo/256.png">
 
-    <!-- pwa: windows -->
-    <meta name="application-name" content="🥬" />
-    <meta name="msapplication-TitleColor" content="#ffffff" />
-    <meta name="msapplication-TitleImage" content="res/Cabbage.png" />
+  <!-- pwa: windows -->
+  <meta name="application-name" content=":TekstoSpegulo">
+  <meta name="msapplication-TitleColor" content="#ffffff">
+  <meta name="msapplication-TitleImage" content="../Materialo/256.png">
 
-    <!-- color and icon -->
-    <meta name="theme-color" content="#ffffff" />
-    <link rel="shortcut icon" type="image/png" href="res/Cabbage.png" />
+  <!-- color and icon -->
+  <meta name="theme-color" content="#ffffff">
+  <link rel="shortcut icon" type="image/png" href="../Materialo/256.png">
 
-    <title>：晚菘</title>
+  <title>:TekstoSpegulo</title>
 
-    <link rel="stylesheet" href="core/Cabbage.css" />
+  <style>
+    body{margin: 0 auto; background-color: #f9f9f9;}
+    /* a{text-decoration: none; color: #0078ff;} */
 
-    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue-router/dist/vue-router.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jsbarcode/dist/JsBarcode.all.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/qrcode_js/qrcode.min.js"></script> -->
-  </head>
-  <body>
-    <header>
-      <h1 id="logo" lang="y">晚菘</h1>
-      <div id="navigado">
-        <!-- tab: operation. -->
-        <input type="radio" name="navigado" id="ciuj" hidden checked>
-        <input type="radio" name="navigado" id="sek" hidden>
-        <input type="radio" name="navigado" id="ejo" hidden>
-        <!-- tab: label for input:radio -->
-        <label for="ciuj">Ĉiuj</label>
-        <label for="sek">Sekvenco</label>
-        <label for="ejo">Ejo</label>
-        <!-- tab: view cat -->
-        <div id="nav-card">
-          <!-- to projekto -->
-          <div class="karto" data-ek="karto1" id="vuenavs">
-            <a :href="ns.lk" class="label" v-for="ns in navdt">{{ns.ln}}</a>
-          </div>
-          <!-- to website links -->
-          <div class="karto" data-ek="karto2">
-            <a href="https://shimo.im/" class="label">Shimo</a>
-          </div>
-        </div>
-      </div>
-    </header>
-    
-    <!-- flanko -->
-    <bar>
-      <a href="javascript:(function () { var script = document.createElement('script'); script.src='https://cdn.jsdelivr.net/npm/eruda'; document.body.appendChild(script); script.onload = function () { eruda.init() } })();" id="Console"></a>
-      <span lang="k">灌園鬻蔬，宜然自得。</span>
-    </bar>
+    @font-face {
+      font-family: 'KTF';
+      src: url('data:application/octet-stream;base64,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ADwAAQAAAAAAAgAHAEQAAQAAAAAAAwAcAEsAAQAAAAAABAAQAGcAAQAAAAAABQAMAHcAAQAAAAAABgAIAIMAAQAAAAAABwASAIsAAQAZACEAAAA8AJ0AAQAZACEAAQAJANkAAQAZACEAAgAHAOIAAQAZACEAAwAcAOkAAQAZACEABAARAQUAAQAZACEABQAMARYAAQAZACEABgAIASIAAQAZACEABwASASoAAwABBAkAAAB4ATwAAwABBAkAAQAQAbQAAwABBAkAAgAOAcQAAwABBAkAAwA4AdIAAwABBAkABAAgAgoAAwABBAkABQAYAioAAwABBAkABgAQAkIAAwABBAkABwAkAlIAAwABCAQAAAB4AnYAAwABCAQAAQAKAu4AAwABCAQAAgAOAvgAAwABCAQAAwA4AwYAAwABCAQABAAaAz4AAwABCAQABQAYA1gAAwABCAQABgAQA3AAAwABCAQABwAkA4AoYykgQ29weXJpZ2h0IEJlaWppbmcgSEFOWUkgS0VZSU4gSW5mb3JtYXRpb24gVGVjaG5vbG9neSBDby5IWUthaVRpU1JlZ3VsYXJIYW55aSBIWUthaVRpUyBSZWd1bGFyIHY1LjAwSFlLYWlUaVMgUmVndWxhclZlcnNpb24gNS4wMEhZS2FpVGlTVHJhZGVtYXJrIG9mIEhBTllJKGMpIENvcHlyaWdodCBCZWlqaW5nIEhBTllJIEtFWUlOIEluZm9ybWF0aW9uIFRlY2hub2xvZ3kgQ28uurrSx7+szOVTUmVndWxhckhhbnlpIEhZS2FpVGlTIFJlZ3VsYXIgdjUuMDC6utLHv6zM5VMgUmVndWxhclZlcnNpb24gNS4wMEhZS2FpVGlTVHJhZGVtYXJrIG9mIEhBTllJACgAYwApACAAQwBvAHAAeQByAGkAZwBoAHQAIABCAGUAaQBqAGkAbgBnACAASABBAE4AWQBJACAASwBFAFkASQBOACAASQBuAGYAbwByAG0AYQB0AGkAbwBuACAAVABlAGMAaABuAG8AbABvAGcAeQAgAEMAbwAuAEgAWQBLAGEAaQBUAGkAUwBSAGUAZwB1AGwAYQByAEgAYQBuAHkAaQAgAEgAWQBLAGEAaQBUAGkAUwAgAFIAZQBnAHUAbABhAHIAIAB2ADUALgAwADAASABZAEsAYQBpAFQAaQBTACAAUgBlAGcAdQBsAGEAcgBWAGUAcgBzAGkAbwBuACAANQAuADAAMABIAFkASwBhAGkAVABpAFMAVAByAGEAZABlAG0AYQByAGsAIABvAGYAIABIAEEATgBZAEkAKABjACkAIABDAG8AcAB5AHIAaQBnAGgAdAAgAEIAZQBpAGoAaQBuAGcAIABIAEEATgBZAEkAIABLAEUAWQBJAE4AIABJAG4AZgBvAHIAbQBhAHQAaQBvAG4AIABUAGUAYwBoAG4AbwBsAG8AZwB5ACAAQwBvAC5sSU7qaXdPUwBTAFIAZQBnAHUAbABhAHIASABhAG4AeQBpACAASABZAEsAYQBpAFQAaQBTACAAUgBlAGcAdQBsAGEAcgAgAHYANQAuADAAMGxJTuppd09TAFMAIABSAGUAZwB1AGwAYQByAFYAZQByAHMAaQBvAG4AIAA1AC4AMAAwAEgAWQBLAGEAaQBUAGkAUwBUAHIAYQBkAGUAbQBhAHIAawAgAG8AZgAgAEgAQQBOAFkASQAAAAMAAAAAAAD+zAAyAAAAAAAAAAAAAAAAAAAAAAAAAAC4Af+FuAAEjQ==') format('truetype');
+    }
+    @font-face{
+      font-family: 'tangut';
+      src: url('res/tangut.woff2') format('woff2');
+    }
 
-    <!-- view block and vue print. -->
-    <div id="Cabbage" class="container">
-      <!-- qr & qrbar show -->
-      <div id="Rulumu">
-        <!-- qrbar -->
-        <div id="qrbar" class="row"></div>
-        <!-- qr -->
-        <div id="qrs" class="row">
-          <div class="tkj"><a href="#/Kalendaro"><img src="res/s3/512.png"></a></div>
-          <div class="tkj"><a href="#/Teksto"><img src="res/tg/512.png"></a></div>
-          <div class="tkj"><a href="#/"><img src="res/Cabbage.png"></a></div>
-          <div class="tkj"><a href="papago.html"><img src="res/Papago.png"></a></div>
-          <div class="tkj"><a href="ilo.html"><img src="res/Lumo.png"></a></div>
-          <div class="tkj"><a href="insigno.html"><img src="res/Army.png"></a></div>
-          <div class="tkj"><a href="lp.html"><img src="res/Compass.png"></a></div>
-          <div class="tkj"><a href="Kalendaro.html"><img src="res/Kalendaro.png"></a></div>
-        </div>
-      </div>
+    .navigation{
+      margin: .3rem;
+      font-family: KaiTi, KTF;
+      }
+    .item{
+      color: #303030;
+      background-color: #e9e9e9;
+      border-radius: .3rem;
+      white-space: nowrap;
+      text-decoration: none;
+      padding: .6rem .9rem;
+      font-size: 1.2rem;
+      line-height: 2.8rem;
+    }
+    .item:hover{font-weight: 600;}
 
-      <!-- view print areo -->
-      <div id="Presi">
-        <!-- <p>記述歲月，書寫春夏秋冬。</p> -->
-        {{vuepre}}
+    #Aro{padding: .3rem; margin-bottom: 1.2rem;}
+    #Aro a{color: #303030;}
+    #Aro a:hover{font-size: 1.8rem;}
 
-        <!-- <jsx-dom></jsx-dom> -->
-      </div>
-      
-      <!-- tmp insertion -->
-      <p style="height: 1024px;" id="ti">
-        <qrb></qrb>
-        <!-- <jsxm></jsxm> -->
-        <router-link to="/papago">Go to Foo</router-link>
-        <router-view></router-view>
-      </p>
-      <!-- tmp End! -->
-      
+    .abemoji::before{content: '🦖';}
+    @media screen and (max-width: 500px){
+      .abemoji::before{content: '🐿';}
+    }
+
+    .tangut{
+      font-family: tangut;
+    }
+  </style>
+
+</head>
+<body>
+
+  <div id="Teksto" class="container">
+    <!-- navigation -->
+    <div class="navigation">
+      <a href="#/" class="item abemoji"></a>
+      <a href="javascript: Tangut()" class="item">西夏文</a>
+      <a href="javascript: prLang('zh')" class="item">漢字</a>
+      <a href="javascript: prLang('kr')" class="item">韓文</a>
+      <a href="javascript: prLang('jp50')" class="item">五十音圖</a>
+      <a href="javascript: Emjios()" class="item">Emjio</a>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue-router/dist/vue-router.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jsbarcode/dist/JsBarcode.all.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/qrcode_js/qrcode.min.js"></script>
-    <!--
-    <script src="core/laboratorio/vue.js"></script>
-    <script src="core/laboratorio/JsBarcode.all.min.js"></script>
-    <script src="core/laboratorio/qrcode.min.js"></script>
-    -->
-    <script src="core/Cabbage.js"></script>
-    <!-- serviceworker script -->
-    <script>
-      if ("serviceWorker" in navigator) {
-        navigator.serviceWorker
-          .register("sw.js")
-          .then(reg => {console.log("✔: ", reg);})
-          .catch(err => {console.log("❌: ", err);});
-      }
+    <!-- copy to card -->
+    <div id="Aro">...</div>
+  </div>
 
-      // Qr & Qrbar dome.
-      JsBarcode(".qrbl", "null", {
-        lineColor: "#3f3f3f",
-        width: 1.2,
-        height: 35,
-        displayValue: false
-      }).init();
-    </script>
-  </body>
+  <script>
+    // print aro
+    const P= document.querySelector('#Aro');
+    // Unicode汉字范围。
+    const hansBase= [0x4e00, 0x9fa5]; // 20902
+    const hansSup= [0x9fa6, 0x9fcb];  // 38
+    const hansExpA= [0x3400, 0x4db5]; // 6582
+    const hansExpB= [0x20000, 0x2a6d6]; // 42711
+    const hansExpC= [0x2a700, 0x2b734]; // 4149
+    const hansExpD= [0x2b740, 0x2b81d]; // 222
+    const hansKaxi= [0x2f00, 0x2fd5]; // 214
+    const hansDict= [0x2e80, 0x2ef3]; // 115
+    const hansComp= [0xf900, 0xfad9]; // 477
+    const hansCoEp= [0x2f800, 0x2fa1d]; // 542
+    const hansPUA_GBK= [0xe815, 0xe86f];  // 81
+    const hansUnit= [0xe400, 0xe5e8]; // 425
+    const hansPUAadd= [0xe600, 0xe6cf]; // 207
+    const hansStroke= [0x31c0, 0x31e3]; // 36
+    const hansStrKripke= [0x2ff0, 0x2ffb]; // 12
+    const hansPh= [0x3105, 0x3120]; // 22
+    const hansPhExp= [0x31a0, 0x31ba]; // 22
+    const hansO= [0x3007]; // 1
+    // Unicode tangut
+    const tangut= [0x17000, 0x187ff];
+    const tangut_Sup= [0x18800, 0x18aff];
+
+    // Korea
+    // 韩文字母 (1100–11FF) 10进制4352-4607 韩文兼容字母 (3130-318F) 10进制12592-12687 韩文音节 (AC00-D7AF) 10进制44032-55215 目前电脑可显示AC00-D7A3 10进制44032-55203 韩文字母扩展A (A960-A97F) 10进制43360-43391 韩文字母扩展B (D7B0-D7FF) 10进制55216-55295
+    // https://zhuanlan.zhihu.com/p/24197668
+    const krAll= [0xac00,0xd7a3]; // 11172
+
+    // japan
+    const gana= [0x3040, 0x309f];
+    const kana= [0x30a0, 0x30ff];
+    const kana_add= [0x31f0, 0x31ff];
+
+    // CJKN Hans full
+
+    // Emoji
+    // http://www.wikiwand.com/zh-cn/%E7%B9%AA%E6%96%87%E5%AD%97
+    const Emjio= [0x1f300,0x1f9e9];
+    const Mahjong= [];
+
+    // DajStore
+    const storeOu= 'https://www.jsonstore.io/abd51e6f80bad6a418c8ee869ada3c6e9dad410672cb15343a4c13fec7caad85';
+
+    // output aro
+    function Tangut(){
+      P.innerHTML='';
+      document.querySelector('#Aro').classList= 'tangut';
+      for(let i=tangut[0]; i<=tangut[0] + 1024; i++){
+        P.innerHTML+= `<a>&#${i}</a>`;
+      }
+    }
+    function Emjios(){
+      P.innerHTML= '';
+      for(let i=Emjio[0]; i<=Emjio[1]; i++){
+        P.innerHTML+= `<a>&#${i}</a>`;
+      }
+    }
+
+  </script>
+</body>
 </html>
