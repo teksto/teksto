@@ -2,8 +2,8 @@
 <html lang="zh-cmn-Hans">
 <head>
   <!-- informo gup -->
-  <meta name="keywords" content="🍇">
-  <meta name="description" content="🍇">
+  <meta name="keywords" content="🍒">
+  <meta name="description" content="西夏文编码工具">
 
   <meta charset="UTF-8">
   <meta name="renderer" content="webkit">
@@ -13,90 +13,99 @@
   <!-- ne baidu transkodo -->
   <meta name="Cache-Control" content="no-siteapp">
 
-  <title>: ilo</title>
+  <title>：西夏文编码工具</title>
 
   <!-- icons -->
-  <!-- <link rel="icon" href="make/logo.png">
-  <link rel="apple-touch-icon" href="make/logo.png">
-
-  <link rel="stylesheet" href="core/🍇.css"> -->
+  <link rel="icon" href="res/lumo.png">
+  <link rel="apple-touch-icon" href="res/lumo.png">
 
   <style>
+    body{margin: 0 auto;}
+    :lang(tg){font-family: tgk;}
+
+    #ILO{
+      display: grid;
+      grid-template-columns: 30vw auto 30vw;
+      min-width: 1024px;
+      font-size: 1.5rem;
+    }
+    #ILO p{margin: .9rem auto 0;}
+
+    #Edit-area{
+      border-left: 1px dashed #9f9f9f;
+      border-right: 1px dashed #9f9f9f;
+    }
+
+    /* font's */
     @font-face {
-      font-family: tg;
+      font-family: 'tgk';
       src: url('res/font/tangut.woff2') format('woff2');
       font-style: normal;
       font-weight: normal;
-      font-display: swap;
-    }
-    .container{
-      display: grid;
-      grid-template-columns: 20vw auto 30vw;
-      font-family: tg;
-    }
-    .item{
-      padding: .3rem;
-      font-size: 1.8rem;
-    }
-    
-    #Parto{
-      text-indent: 5rem;
-    }
-    #Parto, #Redaktejo{
-      top: .3rem;
-      position: sticky;
-      overflow-y: scroll;
-      overflow-x: hidden;
-      height: 98vh;
-    }
-
-    #bngup{
-      top: 0;
-      left: 0;
-      z-index: 90;
-      margin: .3rem;
-      position: fixed;
     }
   </style>
 
 </head>
 <body>
-  <div id="bngup">
-    <button onclick="Tiri()">P</button>
-    <button onclick="Savi()">Savi</button>
+  <div id="ILO" class="container" lang="tg">
+    <!-- 字符集 -->
+    <div class="row">
+      <div class="bgu">
+        <button onclick="rChar(true)">Complete</button>
+        <button onclick="rChar(false)">Section</button>
+      </div>
+      <div id="Kaps-area"></div>
+    </div>
+
+    <!-- 编辑区 -->
+    <div class="row">
+      <div class="bgu">
+        <button onclick="as()">kkkk</button>
+      </div>
+      <div id="Edit-area"></div>
+    </div>
+
+    <!-- 辅助区 -->
+    <div class="row">
+      <div class="bgu"></div>
+      <div id="Aux-area" contenteditable="true"></div>
+    </div>
+
   </div>
 
-  <div id="ilo" class="container">
-    <div id="Parto" class="item"></div>
-    <div id="Ciuj" class="item" contenteditable="true"></div>
-    <div id="Redaktejo" class="item" contenteditable="true"></div>
-  </div>
+  <script src="res/dict.ilo.js"></script>
+  <script>
+    const kap= document.querySelector('#Kaps-area');
+    const eda= document.querySelector('#Edit-area');
+    const aux= document.querySelector('#Aux-area');
 
-<script>
-  for(let i=0x18800; i<=0x18aff; i++){
-    document.querySelector('#Parto').innerHTML+= `&#${i}`;
-  }
+    // tangut unicode.
+    const U= 0x17000;
+    const N= 0x187ff;
+    const Nk= 0x18aff;
+    // for(let i=U; i<=N; i++){kap.innerHTML+= '&#'+i}
 
-  document.querySelector('#Ciuj').innerText= localStorage.tgPlena;
-  document.querySelector('#Redaktejo').innerText= localStorage.tgEdia;
+    // json date.
+    const ul= 'https://extendsclass.com/api/json-storage/bin/acdceec';
 
-  function printAll(){
-    for(let i=0x17000; i<=0x187ff; i++){
-      document.querySelector('#Ciuj').innerHTML+= `&#${i}`;
+
+
+    // view print
+
+    // self-starting.
+    (function(){
+      // print
+      rChar()
+    }())
+    
+
+    function rChar(jud=true){
+      kap.innerHTML= '';
+
+      const TG= jud? TGC.split('\n'):TGS.split('\n');
+      TG.map(d=> kap.innerHTML+= `<p>${d}</p>`);
     }
-  }
-  function Savi(){
-    tgPlena= document.querySelector('#Ciuj').innerText;
-    tgEdia= document.querySelector('#Redaktejo').innerText;
-    localStorage.setItem('tgPlena', tgPlena);
-    localStorage.setItem('tgEdia',tgEdia);
-  }
-
-  function Tiri(){
-    console.log('restart');
-    printAll();
-  }
-
-</script>
+    // rChar()
+  </script>
 </body>
 </html>

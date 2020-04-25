@@ -1,5 +1,7 @@
-// kvin
-
+// kvin to save and localStorage update script.
 const dictKvin={
-  a:{}
+  'tg17000':{
+    id: 0x17000,
+    kv: 'gcnb'
+  }
 }

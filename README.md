@@ -13,7 +13,15 @@
 ## 鹦鹉学舌计划
 ![papago_project](res/papago.png)
 
-一个[词卡计划](docs/papago.md)，分为多卷。
+意图编制一套[五笔](docs/KvinTangut.md)输入方案。
+
+- [编辑器](https://teksto.github.io/ilo.html)
+- ~~[参与五笔编码表的制定](https://teksto.github.io/#/kvin)~~
+
+## 晚菘
+![cabbage_project](res/cabbage.png)
+
+一个[词卡计划](https://teksto.github.io/cabbage/)，分为多卷。
 
 - 第一卷：西夏文。
 - ~~第二卷：女书。~~
@@ -22,13 +30,6 @@
 - ~~第五卷：单词卷。~~
 
 *暂时以 webapp/PWA 方式实现，稍晚推出小程序的实现。*
-
-## 晚菘
-![cabbage_project](res/cabbage.png)
-
-意图编制一套[五笔](docs/KvinTangut.md)输入方案。
-
-- [编辑器](https://teksto.github.io/ilo.html)
 
 # 参考
 - [古今文字集成](http://ccamc.co/)
