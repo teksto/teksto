@@ -32,28 +32,69 @@
       width: 100%;
     }
 
-    #lantern{animation: lumo 3s infinite 0s linear;}
-    #navigate{}
+    #lantern{animation: lumo 5s infinite 0s linear;}
+    #navigate{
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      grid-gap: 1rem;
+    }
+    #navigate a > img{
+      top: 50%;
+      transform: translateY(-50%);
+      position: relative;
+      max-width: 8rem;
+    }
+    #navigate a > img:hover{
+      border-radius: 8rem;
+      padding: 2rem;
+      background: linear-gradient(145deg, #e0e0e0, #f9f9f9);;
+      box-shadow: -1.25rem -1.25rem 3.75rem #e0e0e0, 1.25rem 1.25rem 3.75rem #f9f9f9;
+    }
 
-    #navigate a{}
-    #navigate a:hover{}
-    #navigate a img{max-width: 192px;}
+    #Copyright{
+      font-size: .6rem;
+      color: lightgrey;
+      text-align: center;
+      padding: .3rem 0;
+    }
+
+    @media screen and (min-width: 800px){
+      #Copyright{
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+      }
+    }
 
     @media screen and (max-width: 500px){
       #TEKSTO{
         grid-template-columns: repeat(1,1fr);
+        grid-gap: 1.8rem;
+        margin-top: 15%;
+        position: relative;
+        transform: none;
+        top: auto;
+      }
+    }
+    
+    @media screen and (max-width: 800px){
+      #navigate{
+        overflow: auto;
+        scroll-snap-type: x mandatory;
+        height: 8rem + 4rem;
+        padding: 3.9rem;
       }
     }
 
     /* Animation */
     @keyframes lumo{
-      0%{transform:  rotate(12deg) scale(.8) translate(0,12vh);}
-      12%{transform:  rotate(18deg) scale(.9);}
-      24%{transform:  rotate(12deg) translate(0,-12vh);}
-      36%{transform:  scale(1.2);} 
-      48%{transform:  rotate(12deg) scale(1) translate(0,-12vh);}
-      60%{transform:  rotate(18deg) scale(.9);}
-      100%{transform:  rotate(12deg) scale(.8) translate(0,12vh);}
+      0%{transform:  rotate(12deg) scale(.6) translate(0,12vh);}
+      18%{transform:  rotate(18deg) scale(.7);}
+      36%{transform:  rotate(12deg) scale(.9) translate(0,-12vh);}
+      42%{transform:  scale(1) translate(0, -6vh);} 
+      48%{transform:  rotate(12deg) scale(.9) translate(0,-12vh);}
+      60%{transform:  rotate(18deg) scale(.7);}
+      100%{transform:  rotate(12deg) scale(.6) translate(0,12vh);}
     }
   </style>
 
@@ -65,8 +106,29 @@
 
     <!-- navigation -->
     <div id="navigate">
-      <a href="#/"><img src="res/teksto_god.png"></a>
+      <a href="https://github.com/teksto"><img src="res/teksto_w_128.png"></a>
+      <a href="#/Cabbage"><img src="res/cabbage_w_128.png"></a>
+      <a href="#/Papago"><img src="res/papago_w_128.png"></a>
     </div>
   </div>
+
+  <div id="Copyright">掃盡煙塵散·殘碑通古今·一筆橫折勾·鐵線織輿鏡</div>
+
+  <script>
+    const ul= 'https://jsonbox.io/box_f68045e7bb9019f958cc';
+    const pt= window.location.pathname;
+    
+    fetch(ul).then(r=> r.json()).then(
+      d=> {
+        const vl= d[0];
+        const ln= vl.papago;
+        
+        console.log(ln)
+      }
+    )
+
+
+
+  </script>
 </body>
 </html>
