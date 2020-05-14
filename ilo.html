@@ -13,99 +13,271 @@
   <!-- ne baidu transkodo -->
   <meta name="Cache-Control" content="no-siteapp">
 
-  <title>：西夏文编码工具</title>
+  <title>:Editing work.</title>
 
   <!-- icons -->
   <link rel="icon" href="res/lumo.png">
   <link rel="apple-touch-icon" href="res/lumo.png">
 
   <style>
-    body{margin: 0 auto;}
-    :lang(tg){font-family: tgk;}
-
-    #ILO{
-      display: grid;
-      grid-template-columns: 30vw auto 30vw;
-      min-width: 1024px;
-      font-size: 1.5rem;
-    }
-    #ILO p{margin: .9rem auto 0;}
-
-    #Edit-area{
-      border-left: 1px dashed #9f9f9f;
-      border-right: 1px dashed #9f9f9f;
-    }
+    body{
+      margin: 0 auto;
+      font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Ubuntu,Arial,sans-serif;
+      }
 
     /* font's */
+    :lang(tg){
+      font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Ubuntu,Arial,sans-serif,tgk;
+      /* font-family: tgk; */
+      }
     @font-face {
       font-family: 'tgk';
       src: url('res/font/tangut.woff2') format('woff2');
       font-style: normal;
       font-weight: normal;
     }
+
+    /* layout */
+    #Navigado{
+      top: 0;
+      left: 0;
+      position: absolute;
+      writing-mode: tb-rl;
+      padding: .3rem .15rem;
+    }
+    #Navigado > span{font-size: .6rem;}
+    #Navigado .item{
+      font-size: 1rem;
+      line-height: 1.2rem;
+    }
+    #Navigado a{
+      text-decoration: none;
+      color: #093028;
+    }
+    #Navigado a:hover{
+      font-weight: 500;
+      color: #237a57;
+    }
+
+    #ILO{
+      display: flex;
+      min-height: 100vh;
+      margin-left: calc(1.2rem + .3rem);
+      /* user-select: none; */
+    }
+    #Karaktero{
+      /* background-color: #bdc3c7; */
+      position: relative;
+      min-width: 25vw;
+      width: 45vw;
+    }
+    #Karaktero #Gus{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      right: 0;
+      top: 0;
+      cursor: col-resize;
+      background-color: #237A57;
+      min-height: 100vh;
+    }
+    #Karaktero #Gus i{
+      display: inline-block;
+      height: 1.2rem;
+      width: 1px;
+      background-color: #e0e0e0;
+      margin: 0 .1875rem;
+    }
+    #Redakti{
+      /* background-color: #2c3e50; */
+      flex: 1;
+    }
+
+    #IPT > input{padding: .3rem;}
+    #IPT > input:hover{
+      color: #f9f9f9;
+      background-color: #237A57;
+      }
+    #KS{
+      /* width: auto; */
+      margin: .3rem;
+      overflow: hidden;
+    }
+    #KS .bn{
+      background-color: #237A57;
+      border: 1px solid #093028;
+      border-radius: 1rem;
+      color: #f9f9f9;
+      padding: .1rem .6rem;
+      text-decoration: none;
+      font-size: .9rem;
+      line-height: 1.8rem;
+      margin: .1rem .15rem;
+      white-space: nowrap;
+      float: left;
+    }
+    #KS .bn:hover{background-color: #093028;}
+
+    .Ujo{
+      padding: .3rem;
+      font-size: 1.5rem;
+      }
   </style>
 
 </head>
 <body>
+  <!-- 功能 -->
+  <div id="Navigado">
+    <a href="javascript: savi()" class="item">Savi</a>
+    <span>·</span>
+    <a href="javascript: swap(false)" class="item">Ĉiuj</a>
+    <a href="javascript: swap(true)" class="item">Parto</a>
+    <span>·</span>
+    <a href="javascript: klasi()" class="item">Klasifiko</a>
+    <span>·</span>
+    <a href="javascript: fl('Gisdatigo.json')" class="item">Gisdatigo</a>
+    <a href="javascript: fl()" class="item">Fl</a>
+    <span>·</span>
+    <i id="szw">size</i>
+  </div>
+
   <div id="ILO" class="container" lang="tg">
-    <!-- 字符集 -->
-    <div class="row">
-      <div class="bgu">
-        <button onclick="rChar(true)">Complete</button>
-        <button onclick="rChar(false)">Section</button>
-      </div>
-      <div id="Kaps-area"></div>
+    
+    <!-- 字符区 -->
+    <div id="Karaktero">
+      <div class="Ujo">𘠀𘠁𘠂𘠃𘠄𘠅𘠆𘠇𘠈𘠉𘠊𘠋𘠌𘠍𘠎𘠏𘠐𘠑𘠒𘠓𘠔𘠕𘠖𘠗𘠘𘠙𘠚𘠛𘠜𘠝𘠞𘠟𘠠𘠡𘠢𘠣𘠤𘠥𘠦𘠧𘠨𘠩𘠪𘠫𘠬𘠭𘠮𘠯𘠰𘠱𘠲𘠳𘠴𘠵𘠶𘠷𘠸𘠹𘠺𘠻𘠼𘠽𘠾𘠿𘡀𘡁𘡂𘡃𘡄𘡅𘡆𘡇𘡈𘡉𘡊𘡋𘡌𘡍𘡎𘡏𘡐𘡑𘡒𘡓𘡔𘡕𘡖𘡗𘡘𘡙𘡚𘡛𘡜𘡝𘡞𘡟𘡠𘡡𘡢𘡣𘡤𘡥𘡦𘡧𘡨𘡩𘡪𘡫𘡬𘡭𘡮𘡯𘡰𘡱𘡲𘡳𘡴𘡵𘡶𘡷𘡸𘡹𘡺𘡻𘡼𘡽𘡾𘡿𘢀𘢁𘢂𘢃𘢄𘢅𘢆𘢇𘢈𘢉𘢊𘢋𘢌𘢍𘢎𘢏𘢐𘢑𘢒𘢓𘢔𘢕𘢖𘢗𘢘𘢙𘢚𘢛𘢜𘢝𘢞𘢟𘢠𘢡𘢢𘢣𘢤𘢥𘢦𘢧𘢨𘢩𘢪𘢫𘢬𘢭𘢮𘢯𘢰𘢱𘢲𘢳𘢴𘢵𘢶𘢷𘢸𘢹𘢺𘢻𘢼𘢽𘢾𘢿𘣀𘣁𘣂𘣃𘣄𘣅𘣆𘣇𘣈𘣉𘣊𘣋𘣌𘣍𘣎𘣏𘣐𘣑𘣒𘣓𘣔𘣕𘣖𘣗𘣘𘣙𘣚𘣛𘣜𘣝𘣞𘣟𘣠𘣡𘣢𘣣𘣤𘣥𘣦𘣧𘣨𘣩𘣪𘣫𘣬𘣭𘣮𘣯𘣰𘣱𘣲𘣳𘣴𘣵𘣶𘣷𘣸𘣹𘣺𘣻𘣼𘣽𘣾𘣿𘤀𘤁𘤂𘤃𘤄𘤅𘤆𘤇𘤈𘤉𘤊𘤋𘤌𘤍𘤎𘤏𘤐𘤑𘤒𘤓𘤔𘤕𘤖𘤗𘤘𘤙𘤚𘤛𘤜𘤝𘤞𘤟𘤠𘤡𘤢𘤣𘤤𘤥𘤦𘤧𘤨𘤩𘤪𘤫𘤬𘤭𘤮𘤯𘤰𘤱𘤲𘤳𘤴𘤵𘤶𘤷𘤸𘤹𘤺𘤻𘤼𘤽𘤾𘤿𘥀𘥁𘥂𘥃𘥄𘥅𘥆𘥇𘥈𘥉𘥊𘥋𘥌𘥍𘥎𘥏𘥐𘥑𘥒𘥓𘥔𘥕𘥖𘥗𘥘𘥙𘥚𘥛𘥜𘥝𘥞𘥟𘥠𘥡𘥢𘥣𘥤𘥥𘥦𘥧𘥨𘥩𘥪𘥫𘥬𘥭𘥮𘥯𘥰𘥱𘥲𘥳𘥴𘥵𘥶𘥷𘥸𘥹𘥺𘥻𘥼𘥽𘥾𘥿𘦀𘦁𘦂𘦃𘦄𘦅𘦆𘦇𘦈𘦉𘦊𘦋𘦌𘦍𘦎𘦏𘦐𘦑𘦒𘦓𘦔𘦕𘦖𘦗𘦘𘦙𘦚𘦛𘦜𘦝𘦞𘦟𘦠𘦡𘦢𘦣𘦤𘦥𘦦𘦧𘦨𘦩𘦪𘦫𘦬𘦭𘦮𘦯𘦰𘦱𘦲𘦳𘦴𘦵𘦶𘦷𘦸𘦹𘦺𘦻𘦼𘦽𘦾𘦿𘧀𘧁𘧂𘧃𘧄𘧅𘧆𘧇𘧈𘧉𘧊𘧋𘧌𘧍𘧎𘧏𘧐𘧑𘧒𘧓𘧔𘧕𘧖𘧗𘧘𘧙𘧚𘧛𘧜𘧝𘧞𘧟𘧠𘧡𘧢𘧣𘧤𘧥𘧦𘧧𘧨𘧩𘧪𘧫𘧬𘧭𘧮𘧯𘧰𘧱𘧲𘧳𘧴𘧵𘧶𘧷𘧸𘧹𘧺𘧻𘧼𘧽𘧾𘧿𘨀𘨁𘨂𘨃𘨄𘨅𘨆𘨇𘨈𘨉𘨊𘨋𘨌𘨍𘨎𘨏𘨐𘨑𘨒𘨓𘨔𘨕𘨖𘨗𘨘𘨙𘨚𘨛𘨜𘨝𘨞𘨟𘨠𘨡𘨢𘨣𘨤𘨥𘨦𘨧𘨨𘨩𘨪𘨫𘨬𘨭𘨮𘨯𘨰𘨱𘨲𘨳𘨴𘨵𘨶𘨷𘨸𘨹𘨺𘨻𘨼𘨽𘨾𘨿𘩀𘩁𘩂𘩃𘩄𘩅𘩆𘩇𘩈𘩉𘩊𘩋𘩌𘩍𘩎𘩏𘩐𘩑𘩒𘩓𘩔𘩕𘩖𘩗𘩘𘩙𘩚𘩛𘩜𘩝𘩞𘩟𘩠𘩡𘩢𘩣𘩤𘩥𘩦𘩧𘩨𘩩𘩪𘩫𘩬𘩭𘩮𘩯𘩰𘩱𘩲𘩳𘩴𘩵𘩶𘩷𘩸𘩹𘩺𘩻𘩼𘩽𘩾𘩿𘪀𘪁𘪂𘪃𘪄𘪅𘪆𘪇𘪈𘪉𘪊𘪋𘪌𘪍𘪎𘪏𘪐𘪑𘪒𘪓𘪔𘪕𘪖𘪗𘪘𘪙𘪚𘪛𘪜𘪝𘪞𘪟𘪠𘪡𘪢𘪣𘪤𘪥𘪦𘪧𘪨𘪩𘪪𘪫𘪬𘪭𘪮𘪯𘪰𘪱𘪲𘪳𘪴𘪵𘪶𘪷𘪸𘪹𘪺𘪻𘪼𘪽𘪾𘪿𘫀𘫁𘫂𘫃𘫄𘫅𘫆𘫇𘫈𘫉𘫊𘫋𘫌𘫍𘫎𘫏𘫐𘫑𘫒𘫓𘫔𘫕𘫖𘫗𘫘𘫙𘫚𘫛𘫜𘫝𘫞𘫟𘫠𘫡𘫢𘫣𘫤𘫥𘫦𘫧𘫨𘫩𘫪𘫫𘫬𘫭𘫮𘫯𘫰𘫱𘫲</div>
+
+      <!-- 调节 -->
+      <div id="Gus"><i></i></div>
     </div>
 
     <!-- 编辑区 -->
-    <div class="row">
-      <div class="bgu">
-        <button onclick="as()">kkkk</button>
+    <div id="Redakti">
+      <div id="IPT">
+        <!-- <input type="file" id="fls"> -->
+        <input type="file" id="fls" onchange="fl(this.files)">
+        <!-- <button onclick="fl()">Gisdatigo Fl</button> -->
       </div>
-      <div id="Edit-area"></div>
-    </div>
-
-    <!-- 辅助区 -->
-    <div class="row">
-      <div class="bgu"></div>
-      <div id="Aux-area" contenteditable="true"></div>
+      <div id="KS">
+        <!-- <a href="#/" class="bn">2333</a> -->
+      </div>
+      <div class="Ujo" id="EDT" contenteditable="true">right areo</div>
     </div>
 
   </div>
 
+
+
+
+  <!-- script -->
+  <script src="res/lumo.tmp.js"></script>
   <script src="res/dict.ilo.js"></script>
   <script>
-    const kap= document.querySelector('#Kaps-area');
-    const eda= document.querySelector('#Edit-area');
-    const aux= document.querySelector('#Aux-area');
+    const K= document.querySelector('#Karaktero > .Ujo');
+    const R= document.querySelector('#Redakti > .Ujo');
+    const G= document.querySelector('#Gus');
+    const S= document.querySelector('#KS');
 
     // tangut unicode.
     const U= 0x17000;
     const N= 0x187ff;
     const Nk= 0x18aff;
-    // for(let i=U; i<=N; i++){kap.innerHTML+= '&#'+i}
+    // for(let i=N; i<=Nk; i++){K.innerHTML+='&#' + i}
 
-    // json date.
-    const ul= 'https://extendsclass.com/api/json-storage/bin/acdceec';
+    // full & radical swap.
+    function swap(jud){
+      // const pv= jud? TGC.split('\n'):TGK;
+      K.innerText= jud? TGC:TGK;
+    }
 
-
-
-    // view print
-
-    // self-starting.
-    (function(){
-      // print
-      rChar()
-    }())
+    // savi
+    // klasi
+    // Dosierujo
+    // localstorage
+    for(let i=0; i<=localStorage.length; i++){
+      S.innerHTML+=`<a href="#/" class="bn">${localStorage.key(i)}</a>`
+    }
     
 
-    function rChar(jud=true){
-      kap.innerHTML= '';
+    // json date, fetch datemoj.
+    // const ul= 'https://extendsclass.com/api/json-storage/bin/acdceec';
+    const ul= 'https://jsonbox.io/box_cead10b43ae8561b52c3';
+    
+    // adj width size.
+    const kX= ()=> {return parseInt(window.getComputedStyle(document.querySelector('#Karaktero')).width, 10)}
+    document.querySelector('#Karaktero').style.width= kX() + 'px';
+    G.addEventListener('mousedown', function(k){
+      const X= k.clientX;
+      const W= kX();
+  
+      document.documentElement.addEventListener('mousemove', mvg);
+      document.documentElement.addEventListener('mouseup', halti);
+      
+      function mvg(k){
+        let nkX= W + k.clientX - X;
+        document.querySelector('#szw').innerHTML= nkX;
+        document.querySelector('#Karaktero').style.width= nkX + 'px';  
+      }
+      function halti(){
+        // localStorage data is the.
+        document.documentElement.removeEventListener('mousemove', mvg);
+        document.documentElement.removeEventListener('mouseup', halti);
+      }
+    });
 
-      const TG= jud? TGC.split('\n'):TGS.split('\n');
-      TG.map(d=> kap.innerHTML+= `<p>${d}</p>`);
+    // file
+    function sw_Fl(daj,flName='GIS.json'){
+      const blob= new Blob([daj]);
+      const dl= document.createElement('a');
+      dl.style.display= 'none';
+      dl.download = flName;
+      dl.href= URL.createObjectURL(blob);
+      // trigger event.
+      document.body.appendChild(dl);
+      dl.click();
+      // remove
+      document.body.removeChild(dl);
     }
-    // rChar()
+
+    function rd_Fl(obj){
+      const rdObj= obj.files[0];
+
+      const rd= new FileReader();
+      rd.onload= e=>{
+        const fs= JSON.parse(e.target.result);
+        // file rd operation.
+        // console.log(fs);
+        return fs
+      }
+      rd.readAsText(rdObj,'utf-8');
+    }
+
+    // flul= 'GIS.json';
+    function fl(dat, prt= '#EDT', opt= false){
+      const f= dat[0];
+      const B= new Blob([dat]);
+      const R= new FileReader();
+
+      const lk= document.createElement('a');
+        lk.style.display= 'none';
+        lk.download= 'NUL.json';
+        lk.href= URL.createObjectURL(B);
+        
+      function savi(){console.log('savi',kk)}
+
+      function legu(){console.log(f)}
+        // R.onload= function(){
+        //   // console.log(this.result)
+        //   // return JSON.parse(f.target.result)
+        //   // return this.result
+        //   document.querySelector(prt).innerText= this.result
+        // }
+        // R.readAsText(f, 'utf-8')
+      opt? savi() : legu();
+    }
+
+
   </script>
 </body>
 </html>
