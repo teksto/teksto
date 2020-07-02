@@ -10,16 +10,16 @@
 # 计划
 以西夏文为先导，探寻三朝文字的秘密。上启甲骨卜辞，下达假名、谚文。往西的越过沙漠是别一个世界，以简少的字母拼写出万千的语言，但她们的起点也是有着庞大的象形系统。
 
-## 鹦鹉学舌计划
-![papago_project](res/papago.png)
+## 晚菘
+![cabbage_project](res/cabbage.png)
 
 意图编制一套[五笔](docs/KvinTangut.md)输入方案。
 
 - [编辑器](https://teksto.github.io/ilo.html)
 - ~~[参与五笔编码表的制定](https://teksto.github.io/#/kvin)~~
 
-## 晚菘
-![cabbage_project](res/cabbage.png)
+## 鹦鹉学舌计划
+![papago_project](res/papago.png)
 
 一个[词卡计划](https://teksto.github.io/cabbage/)，分为多卷。
 

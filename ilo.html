@@ -160,6 +160,7 @@
 
   <!-- 功能 -->
   <div id="Navigado">
+    <a href="index.html" class="item">Hejme</a>
     <a href="javascript: Savi()" class="item">Savi</a>
     <a href="javascript: flSavi()" class="item">Gisdatigo-fl</a>
     <span>·</span>
@@ -296,22 +297,18 @@
       }
       // file clickout to edit.
       function flEgu(org, prt= '#EDT'){
+        const P= [];
         const F= org[0];
         const R= new FileReader();
-          R.onload= function(){document.querySelector(prt).innerText= this.result}
+          R.onload= function(){
+            document.querySelector(prt).innerText= this.result;
+            P.push(this.result)
+          }
           R.readAsText(F, 'utf-8')
+
+        // return P.length >0? JSON.parse(P[0]):null
+        // console.log(P)
       }
-
-    
-
-    // tempdome.
-
-    function as(int){
-      const id= 10;
-      this.age= 20;
-
-      console.log(id+ int, '@', age)
-    }
 
   </script>
 </body>

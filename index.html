@@ -16,119 +16,188 @@
   <title>言鏡：掃盡煙塵散，殘碑通古今，一筆橫折勾，鐵線織輿鏡。</title>
 
   <!-- icons -->
-  <link rel="icon" href="res/teksto_god.png">
-  <link rel="apple-touch-icon" href="res/teksto_god.png">
-  
-  <style>
-    body{margin: 0 auto;}
+  <link rel="icon" href="res/lumo.png">
+  <link rel="apple-touch-icon" href="res/lumo.png">
 
-    #TEKSTO{
-      display: grid;
-      grid-template-columns: repeat(2,1fr);
-      position: absolute;
-      transform: translateY(-50%);
-      top: 50%;
-      text-align: center;
-      width: 100%;
-    }
-
-    #lantern{animation: lumo 5s infinite 0s linear;}
-    #navigate{
-      display: grid;
-      grid-template-columns: repeat(3,1fr);
-      grid-gap: 1rem;
-    }
-    #navigate a > img{
-      top: 50%;
-      transform: translateY(-50%);
-      position: relative;
-      max-width: 8rem;
-    }
-    #navigate a > img:hover{
-      border-radius: 8rem;
-      padding: 2rem;
-      background: linear-gradient(145deg, #e0e0e0, #f9f9f9);;
-      box-shadow: -1.25rem -1.25rem 3.75rem #e0e0e0, 1.25rem 1.25rem 3.75rem #f9f9f9;
-    }
-
-    #Copyright{
-      font-size: .6rem;
-      color: lightgrey;
-      text-align: center;
-      padding: .3rem 0;
-    }
-
-    @media screen and (min-width: 800px){
-      #Copyright{
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-      }
-    }
-
-    @media screen and (max-width: 500px){
-      #TEKSTO{
-        grid-template-columns: repeat(1,1fr);
-        grid-gap: 1.8rem;
-        margin-top: 15%;
-        position: relative;
-        transform: none;
-        top: auto;
-      }
-    }
-    
-    @media screen and (max-width: 800px){
-      #navigate{
-        overflow: auto;
-        scroll-snap-type: x mandatory;
-        height: 8rem + 4rem;
-        padding: 3.9rem;
-      }
-    }
-
-    /* Animation */
-    @keyframes lumo{
-      0%{transform:  rotate(12deg) scale(.6) translate(0,12vh);}
-      18%{transform:  rotate(18deg) scale(.7);}
-      36%{transform:  rotate(12deg) scale(.9) translate(0,-12vh);}
-      42%{transform:  scale(1) translate(0, -6vh);} 
-      48%{transform:  rotate(12deg) scale(.9) translate(0,-12vh);}
-      60%{transform:  rotate(18deg) scale(.7);}
-      100%{transform:  rotate(12deg) scale(.6) translate(0,12vh);}
-    }
-  </style>
+  <link rel="stylesheet" href="res/teksto.css">
 
 </head>
+<!-- 晚菘鸚鵡學舌計劃篇章稿筆韻卡第一二三四五六七八九十篆字書法簡譜典志漢蕃關於漢蕃譯語這並不是一個真正的翻譯器，而是一個手工選譯的小工具而已。蕃字（暫時只支持西夏文）並提供‘首部件’查字工具。晚菘鹦鹉学舌计划篇章稿笔韵卡第一二三四五六七八九十篆字书法简谱典志汉蕃关于汉蕃译语这并不是一个真正的翻译器，而是一个手工选译的小工具而已。蕃字（暂时只支持西夏文）并提供‘首部件’查字工具。 -->
 <body>
-  <div id="TEKSTO" class="container">
-    <!-- lantern -->
-    <div id="lantern"><img src="res/lumo.png"></div>
-
-    <!-- navigation -->
-    <div id="navigate">
-      <a href="https://github.com/teksto"><img src="res/teksto_w_128.png"></a>
-      <a href="https://teksto.site/cabbage/"><img src="res/cabbage_w_128.png"></a>
-      <a href="https://teksto.site/Papago/"><img src="res/papago_w_128.png"></a>
+<div id="Teksto">
+  <div id="Navigado">
+    <div id="logo">
+      <a href="#foto"><img src="res/lumo.png"></a>
+    </div>
+    <div id="nav-bar">
+      <div class="item">
+        <a href="#Cabbage">晚菘篇</a>
+        <a href="#Kvin">五筆稿</a>
+        <a href="#Traduki">譯語</a>
+      </div>
+      <div class="item">
+        <a href="#Papago">鸚鵡學舌</a>
+        <!-- <a href="#Karto">韻卡</a> -->
+      </div>
+      <div class="item">
+        <!-- <a href="#Capitro">第三篇</a>
+        <a href="#Sigelo">篆字</a> -->
+        <a href="#JZP">簡字譜</a>
+      </div>
+      <!-- <div class="item">
+        <a href="Libro">典誌篇</a>
+      </div> -->
     </div>
   </div>
 
-  <div id="Copyright">掃盡煙塵散·殘碑通古今<a href="weixin://a/~QWZAYqPxtuP5qjdm6Lf7ZQ~~">·</a>一筆橫折勾·鐵線織輿鏡</div>
+  <div id="Spaco" class="Ujo">
+    <!-- Unu foto-kadro -->
+    <div class="areo" id="foto">
+      <div><img src="res/background.jpg"></div>
+    </div>
+    <div class="areo" id="Unu">
+      <div>
+        <a class="bn">🎲</a>
+        <a class="bn">🎲</a>
+        <a class="bn">🎮</a>
+        <a class="bn">🎲</a>
+        <a class="bn">🎲</a>
+      </div>
+    </div>
 
-  <script>
-    const ul= 'https://jsonbox.io/box_f68045e7bb9019f958cc';
-    const pt= window.location.pathname;
-    
-    fetch(ul).then(r=> r.json()).then(
-      d=> {
-        const vl= d[0];
-        const ln= vl.papago;
+    <!-- Cabbage gup -->
+    <div class="areo" id="Cabbage">
+      <div>
+        <div class="imager"><img src="res/cabbage.png"></div>
+        <div class="cefa">
+          <h1>晚菘计划</h1>
+          <!-- <div class="priskribo"></div> -->
+        </div>
+      </div>
+    </div>
+    <div class="areo" id="Kvin">
+      <div lang="tg">
+        𘠀𘠁𘠂𘠃𘠄𘠅𘠆𘠇𘠈𘠉𘠊𘠋𘠌𘠍𘠎𘠏𘠐𘠑𘠒𘠓𘠔𘠕𘠖𘠗𘠘𘠙𘠚𘠛𘠜𘠝𘠞𘠟𘠠𘠡𘠢𘠣𘠤𘠥𘠦𘠧𘠨𘠩𘠪𘠫𘠬𘠭𘠮𘠯𘠰𘠱𘠲𘠳𘠴𘠵𘠶𘠷𘠸𘠹𘠺𘠻𘠼𘠽𘠾𘠿𘡀𘡁𘡂𘡃𘡄𘡅𘡆𘡇𘡈𘡉𘡊𘡋𘡌𘡍𘡎𘡏𘡐𘡑𘡒𘡓𘡔𘡕𘡖𘡗𘡘𘡙𘡚𘡛𘡜𘡝𘡞𘡟𘡠𘡡𘡢𘡣𘡤𘡥𘡦𘡧𘡨𘡩𘡪𘡫𘡬𘡭𘡮𘡯𘡰𘡱𘡲𘡳𘡴𘡵𘡶𘡷𘡸𘡹𘡺𘡻𘡼𘡽𘡾𘡿𘢀𘢁𘢂𘢃𘢄𘢅𘢆𘢇𘢈𘢉𘢊𘢋𘢌𘢍𘢎𘢏𘢐𘢑𘢒𘢓𘢔𘢕𘢖𘢗𘢘𘢙𘢚𘢛𘢜𘢝𘢞𘢟
+      </div>
+    </div>
+    <div class="areo" id="Traduki">
+      <div>
+        <h1>漢蕃譯語</h1>
+        <div class="ska">
+          <input type="text" id="trad" placeholder="汉字、词组、句子。">
+          <button onclick="traduki();">譯</button>
+        </div>
+        <div class="slogano">
+          <ul>
+            <li>关于汉蕃译语</li>
+            <li>这并不是一个真正的翻译器，而是一个手工选译的小工具而已。</li>
+            <li>蕃字（暂时只支持西夏文）并提供‘<a href="#Kvin">首部件</a>’查字工具。</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Papago gup -->
+    <div class="areo" id="Papago">
+      <div>
+        <div class="imager"><img src="res/papago.png"></div>
+        <div class="cefa">
+          <h1>鸚鵡學舌</h1>
+        </div>
+      </div>
+    </div>
+    <div class="areo" id="Karto">
+      <!-- <div>Crad red</div> -->
+    </div>
+
+    <!-- Font second gup -->
+    <!--
+    <div class="areo" id="Capitro">
+      <div>三篇</div>
+    </div>
+    <div class="areo" id="Sigelo">
+      <div>篆字</div>
+    </div>
+  -->
+    <div class="areo" id="JZP">
+      <!-- <div>简字谱 background</div> -->
+    </div>
+
+    <!-- Buch -->
+    <!--
+    <div class="areo" id="Libro">
+      <div>Buch yellow</div>
+    </div>
+  -->
+
+    <!-- Kopirajto -->
+    <div class="areo" id="kopirajto">
+      <div>
+        <div id="Pri"></div>
         
-        console.log(ln)
-      }
-    )
+        <div id="Ligilo">
+          <a class="bl"><span id="wx-papago"></span></a>
+          <a class="bl"><span id="wp-papago"></span></a>
+          <a class="bl">
+            <svg class="barQr"
+              jsbarcode-format="CODE128"
+              jsbarcode-value="Cabbage-20200702"
+              jsbarcode-lineColor="#34495e"
+              jsbarcode-fontSize=12,
+              jsbarcode-displayValue=true
+              ></svg>
+            </a>
+            <a class="bl">
+              <svg class="barQr"
+                jsbarcode-format="CODE128"
+                jsbarcode-value="CCA10a0akl19301jsa-12"
+                jsbarcode-lineColor="#34495e"
+                jsbarcode-fontSize=12,
+            ></svg>
+          </a>
+        </div>
+
+        <div id="Copyright">
+          <p>CCA-α(991,35,59)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.0/dist/JsBarcode.all.min.js"></script>
+<script src="../webApp/core/laboratorio/qrcode.min.js"></script>
+<script>
+  const uziUl= 'https://jsonbox.io/box_a6bc40879a66ee88d72b';
+  const pasUl= 'https://extendsclass.com/api/json-storage/bin/bbbdabf';
+
+  function netDmj(){}
+  function uzanto(){}
+
+  // const countInfo= function(){}
+  const countInfo= + new Date();
+  const kaplinio= {
+    'Content-type': 'application/json',
+    'Security-key': ''
+  }
+
+  JsBarcode('.barQr').init();
+  new QRCode(document.querySelector('#wx-papago'), {
+    text:'Papago',
+    width: 128,
+    height: 128,
+    colorDark: '#34495e'
+  });
+  new QRCode(document.querySelector('#wp-papago'), {
+    text: 'wx-papago',
+    width: 128,
+    height: 128,
+    colorDark: '#34495e'
+  })
 
 
+  function traduki(info){console.log(123,info) }
 
-  </script>
+</script>
 </body>
 </html>
