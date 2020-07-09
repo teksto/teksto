@@ -168,19 +168,23 @@
 <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.0/dist/JsBarcode.all.min.js"></script>
 <script src="../webApp/core/laboratorio/qrcode.min.js"></script>
 <script>
-  const uziUl= 'https://jsonbox.io/box_a6bc40879a66ee88d72b';
-  const pasUl= 'https://extendsclass.com/api/json-storage/bin/bbbdabf';
-
-  function netDmj(){}
-  function uzanto(){}
-
-  // const countInfo= function(){}
   const countInfo= + new Date();
-  const kaplinio= {
-    'Content-type': 'application/json',
-    'Security-key': ''
+  
+  const uziUl= 'https://jsonbox.io/box_2bab5b64290f38e9213b';
+  const pasUl= 'https://extendsclass.com/api/json-storage/bin/bbbdabf';
+  // PUT uzan pass.
+  function uzantoUp(ul= pasUl, jn){
+    fetch(ul, {
+      headers: {
+        'Content-type': 'application/json',
+        'Security-key': 'saran'
+      },
+      method: 'PUT',
+      body: JSON.stringify(jn)
+    }).then(r=> r.json()).then(d=> console.log(d) );
   }
 
+  // Qrbar script.
   JsBarcode('.barQr').init();
   new QRCode(document.querySelector('#wx-papago'), {
     text:'Papago',

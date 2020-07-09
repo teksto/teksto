@@ -1,0 +1,174 @@
+// teksto.github.io_Translate
+@import "baze";
+@import "faru";
+
+body{
+  color: $dark;
+  display: flex;
+  margin: 0 auto;
+  min-height: 100vh;
+  font-family: $font-family;
+  background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+}
+
+// layout
+#Trad{
+  margin: auto;
+  #kaplinio{
+    text-align: center;
+    h1{
+      font-weight: 500;
+      font-size: 3.8rem;
+      font-family: $font-kaiti;
+    }
+    #trad-form{
+      input{
+        font-family: $font-kaiti;
+        line-height: 2.1rem;
+        font-size: 1.8rem;
+        outline: 0;
+        color: $dark;
+        width: 75vw;
+        padding: .6rem;
+        border-radius: .3rem;
+        border: 1px solid $gray;
+
+        @media (max-width: $screen){width: 60vw;}
+      }
+      button{
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background: none;
+        border: none;
+        font-family: $font-kaiti;
+        line-height: 2.1rem;
+        font-size: 1.8rem;
+        outline: 0;
+        padding: .6rem;
+        color: $white;
+        background-color: $red;
+        border-radius: .3rem;
+        
+        &:focus,
+        &:hover{
+          color: $red;
+          background: none;
+        }
+      }
+    }
+    #tip{
+      text-align: left;
+      font-family: $font-kaiti;
+      font-size: 1.2rem;
+      line-height: 1.8rem;
+      margin-left: .6rem;
+      padding: .6rem 0;
+
+      a{
+        color: $dark;
+        font-weight: 500;
+        text-decoration: none;
+
+        .press,
+        &:hover{text-decoration: line-through;}
+      }
+    }
+  }
+
+  #presi{
+    padding: .3rem .6rem;
+    background-color: $white;
+  }
+
+  #copyright{
+    font-size: 1rem;
+    line-height: 1.2rem;
+    font-family: $font-kaiti;
+    text-align: center;
+
+    a{
+      color: $dark;
+      text-decoration: none;
+      &:hover{
+        font-weight: 500;
+      }
+    }
+  }
+
+}
+
+// sub-esploro-sig def
+.sub-row{
+  display: grid;
+  grid-template-columns: 3rem auto 3rem;
+  border-bottom: 1px dashed $dark;
+
+  .sub,
+  .def{
+    font-size: 1.8rem;
+    font-weight: 500;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+  .esp{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+
+    .loro{
+      padding: .3rem;
+
+      .vorto{
+        font-weight: 500;
+        padding-left: .3rem;
+      }
+      .sig{
+        text-align-last: left;
+        p{
+          margin: .2rem 0 .1rem 0;
+          padding: 0 0 0 .3rem;
+          color: $gray;
+          border-left: .18rem solid $gray-dark;
+        }
+      }
+      
+      &:focus,
+      &:hover{
+        background-color: $gray-light;
+      }
+    }
+  }
+  .def{}
+
+  &:last-child{border: none;}
+
+  @media (max-width: $screen){}
+}
+
+// Keyboard
+#keyboard{
+  font-family: $font-kaiti;
+  border-radius: .3rem;
+  background-color: $white;
+  width: 3rem + 3rem * 6;
+
+  .row{
+    display: grid;
+    grid-template-columns: 3.8rem auto;
+    .radiko{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.5rem;
+    }
+    .make{
+      display: grid;
+      grid-template-columns: repeat(6,1fr);
+      .tek{
+        &:hover{background-color: $gray-light;}
+      }
+    }
+  }
+}

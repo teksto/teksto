@@ -20,16 +20,17 @@
   <link rel="apple-touch-icon" href="res/lumo.png">
 
   <style>
-    body{
-      margin: 0 auto;
-      font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Ubuntu,Arial,sans-serif;
-      }
+    :root{
+      --cl: #237A57;
+      --ln: #348b68;
+      --ffm: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Ubuntu,Arial,sans-serif;
+    }
 
-    /* font's */
-    :lang(tg){
-      font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Ubuntu,Arial,sans-serif,tgk;
-      /* font-family: tgk; */
-      }
+    ::-webkit-scrollbar{display: none;}
+    :lang(tg){font-family: var(--ffm), tgk;}
+    body{margin: 0 auto; font-family: var(--ffm);}
+    a{text-decoration: none; color: var(--cl);}
+    a:hover{font-weight: 500; color: var(--ln);}
     @font-face {
       font-family: 'tgk';
       src: url('res/font/tangut.woff2') format('woff2');
@@ -38,145 +39,62 @@
     }
 
     /* layout */
-    #Navigado{
-      top: 0;
-      left: 0;
-      position: absolute;
-      writing-mode: tb-rl;
-      padding: .3rem .15rem;
-    }
-    #Navigado > span{font-size: .6rem;}
-    #Navigado .item{
-      font-size: 1rem;
-      line-height: 1.2rem;
-    }
-    #Navigado a{
-      text-decoration: none;
-      color: #093028;
-    }
-    #Navigado a:hover{
-      font-weight: 500;
-      color: #237a57;
-    }
+    #Navigado{top: 0; left: 0; position: absolute; writing-mode: vertical-lr; padding: .6rem .3rem;}
 
-    #ILO{
-      display: flex;
-      min-height: 100vh;
-      margin-left: calc(1.2rem + .3rem);
-      /* user-select: none; */
-    }
-    #Karaktero{
-      /* background-color: #bdc3c7; */
-      position: relative;
-      min-width: 25vw;
-      width: 45vw;
-    }
-    #Karaktero #Gus{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: absolute;
-      right: 0;
-      top: 0;
-      cursor: col-resize;
-      background-color: #237A57;
-      min-height: 100vh;
-    }
-    #Karaktero #Gus i{
-      display: inline-block;
-      height: 1.2rem;
-      width: 1px;
-      background-color: #e0e0e0;
-      margin: 0 .1875rem;
-    }
-    #Redakti{flex: 1; width: 100%;}
+    #ILO{display: flex; margin-left: 1.8rem; height: 100vh; overflow-y: hidden;}
+    #Karaktero{font-size: 1.5rem; line-height: 1.8rem; position: relative; min-width: 20vw; width: 35vw;}
+    #kar-Ujo{width: calc(100% - .6rem); height: 100vh; overflow-y: auto; padding: .3rem;}
+    #Gus{top: 0; right: 0; position: absolute; display: flex; justify-content: center; align-items: center; min-height: 100vh; cursor: col-resize; background-color: var(--cl);}
+    #Gus i{display: inline-block; height: 1.2rem; width: 1px; margin: 0 .1875rem; background-color: #e0e9ef;}
 
-    #IPT{
-      display: flex;
-      flex-flow: row wrap;
-      font-size: .9rem;
-      line-height: 1.2rem;
-    }
-    #flView,
-    #storage,
-    #KS{flex: 1 0 50%;}
+    #Redakti{flex: 1; max-width: 80vw;}
+    #IPT{display: grid; grid-template-columns: 25rem auto; font-size: 1rem; line-height: 1.5rem;}
+    #Enigo{background-color: var(--cl); color: #f9f9f9; display: grid; grid-template-columns: 3rem 3rem auto;}
+    #KS{border-bottom: 1px solid var(--cl); white-space: nowrap; overflow-x: auto;}
 
-    #flView{}
-    #flView > input{
-      background-color: #237A57;
-      color: #f9f9f9;
-      width: calc(100% - .6rem);
-      padding: .3rem;
-      outline: 0;
-    }
-    #storage{display: flex;}
-    #storage > input,
-    #storage > button{
-      border-style: none;
-      color: #f9f9f9;
-      outline: 0;
-    }
-    #storage > input{
-      flex: 2;
-      padding: 0 .3rem;
-      border-bottom: .1rem solid #237A57;
-      color: #237A57;
-    }
-    #storage > button{
-      flex: 1;
-      background-color: #237A57;
-    }
-    #flView > input:hover,
-    #storage > button:hover{background-color: #348b68;}
+    .bngup{background-color: var(--cl); font-size: 1rem; line-height: 1.5rem; position: absolute;}
+    .bngup button{color: #e0e9ef; outline: 0;}
 
-    #KS{
-      padding: .3rem;
-      color: #afafaf;
-    }
-    #KS > a{
-      text-decoration: none;
-      margin: auto .3rem;
-    }
+    #red-Ujo, #noto-Ujo{font-size: 1.8rem; line-height: 2.1rem; height: calc(100vh - 3.8rem); overflow-y: auto;}
 
-    .Ujo{
-      padding: .3rem;
-      font-size: 1.5rem;
-      }
-    #Karaktero > .Ujo::-webkit-scrollbar{display: none;}
-    #Karaktero > .Ujo{
-      height: calc(100vh - .6rem);
-      overflow-y: auto;
-    }
-    #Redakti > .Ujo{
-      height: calc(100vh - 5rem - .6rem);
-      overflow-y: auto;
-    }
+    .ka-row{border-bottom: 1px dashed var(--cl); display: grid; grid-template-columns: 2.4rem auto;}
+    .ka-title{font-size: .9rem; font-weight: 500; writing-mode: vertical-lr; border-right: 1px dashed var(--cl); display: flex; justify-content: center; align-items: center;}
+    .ka-column{outline: 0; width: 100%;}
 
-    .sele{font-weight: 500;}
+    label{color: var(--ln);}
+    #red-bn:checked ~ .eng label[for='red-bn'],
+    #noto-bn:checked ~ .eng label[for='noto-bn']{color: #f9f9f9;}
+    #red-bn:checked ~ .tags:not([data-tag='red']),
+    #noto-bn:checked ~ .tags:not([data-tag='noto']){display: none;}
+
+    /* components */
+    button{appearance: none; border-style: none; background-color: var(--cl); font-size: 1rem; line-height: 1.5rem;}
+    input{appearance: none; border-style: none; font-size: .9rem; line-height: 1.2rem; margin-right: .3rem;}
+    /* input[type='file']{display: none; visibility: hidden;} */
+    input[type='file']{font-size: .6rem; line-height: 1.5rem;}
+    input[type='radio']{width: 3rem; height: .9rem;}
+    button:focus, button:hover{background-color: var(--ln);}
+    /* .akt{font-weight: 500; text-decoration: line-through;} */
+    .item::before{content: ' · ';}
+    .item:first-child::before{content: '';}
+
+    #EDT, #kvar-table, #Noto{outline: 0; padding: 1.8rem .3rem .3rem .3rem;}
   </style>
 
 </head>
 <body>
-
-  <!-- 功能 -->
   <div id="Navigado">
     <a href="index.html" class="item">Hejme</a>
-    <a href="javascript: Savi()" class="item">Savi</a>
-    <a href="javascript: flSavi()" class="item">Gisdatigo-fl</a>
-    <span>·</span>
-    <a href="javascript: swap(true)" id="Ciuj" class="item sele">Ĉiuj</a>
-    <a href="javascript: swap(false)" id="Parto" class="item">Parto</a>
-    <span>·</span>
-    <a href="javascript: klasi()" class="item">Klasifiko</a>
-    <span>·</span>
+    <a href="javascript: swap(true)" class="item">Ĉiuj</a>
+    <a href="javascript: swap(false)" class="item">Parto</a>
+    <a href="javascript: ceko(true)" id="cekos" class="item">Klasifiko</a>
     <i id="szw">size</i>
   </div>
 
   <div id="ILO" class="container" lang="tg">
-    
     <!-- 字符区 -->
     <div id="Karaktero">
-      <div class="Ujo">𘠀𘠁𘠂𘠃𘠄𘠅𘠆𘠇𘠈𘠉𘠊𘠋𘠌𘠍𘠎𘠏𘠐𘠑𘠒𘠓𘠔𘠕𘠖𘠗𘠘𘠙𘠚𘠛𘠜𘠝𘠞𘠟𘠠𘠡𘠢𘠣𘠤𘠥𘠦𘠧𘠨𘠩𘠪𘠫𘠬𘠭𘠮𘠯𘠰𘠱𘠲𘠳𘠴𘠵𘠶𘠷𘠸𘠹𘠺𘠻𘠼𘠽𘠾𘠿𘡀𘡁𘡂𘡃𘡄𘡅𘡆𘡇𘡈𘡉𘡊𘡋𘡌𘡍𘡎𘡏𘡐𘡑𘡒𘡓𘡔𘡕𘡖𘡗𘡘𘡙𘡚𘡛𘡜𘡝𘡞𘡟𘡠𘡡𘡢𘡣𘡤𘡥𘡦𘡧𘡨𘡩𘡪𘡫𘡬𘡭𘡮𘡯𘡰𘡱𘡲𘡳𘡴𘡵𘡶𘡷𘡸𘡹𘡺𘡻𘡼𘡽𘡾𘡿𘢀𘢁𘢂𘢃𘢄𘢅𘢆𘢇𘢈𘢉𘢊𘢋𘢌𘢍𘢎𘢏𘢐𘢑𘢒𘢓𘢔𘢕𘢖𘢗𘢘𘢙𘢚𘢛𘢜𘢝𘢞𘢟𘢠𘢡𘢢𘢣𘢤𘢥𘢦𘢧𘢨𘢩𘢪𘢫𘢬𘢭𘢮𘢯𘢰𘢱𘢲𘢳𘢴𘢵𘢶𘢷𘢸𘢹𘢺𘢻𘢼𘢽𘢾𘢿𘣀𘣁𘣂𘣃𘣄𘣅𘣆𘣇𘣈𘣉𘣊𘣋𘣌𘣍𘣎𘣏𘣐𘣑𘣒𘣓𘣔𘣕𘣖𘣗𘣘𘣙𘣚𘣛𘣜𘣝𘣞𘣟𘣠𘣡𘣢𘣣𘣤𘣥𘣦𘣧𘣨𘣩𘣪𘣫𘣬𘣭𘣮𘣯𘣰𘣱𘣲𘣳𘣴𘣵𘣶𘣷𘣸𘣹𘣺𘣻𘣼𘣽𘣾𘣿𘤀𘤁𘤂𘤃𘤄𘤅𘤆𘤇𘤈𘤉𘤊𘤋𘤌𘤍𘤎𘤏𘤐𘤑𘤒𘤓𘤔𘤕𘤖𘤗𘤘𘤙𘤚𘤛𘤜𘤝𘤞𘤟𘤠𘤡𘤢𘤣𘤤𘤥𘤦𘤧𘤨𘤩𘤪𘤫𘤬𘤭𘤮𘤯𘤰𘤱𘤲𘤳𘤴𘤵𘤶𘤷𘤸𘤹𘤺𘤻𘤼𘤽𘤾𘤿𘥀𘥁𘥂𘥃𘥄𘥅𘥆𘥇𘥈𘥉𘥊𘥋𘥌𘥍𘥎𘥏𘥐𘥑𘥒𘥓𘥔𘥕𘥖𘥗𘥘𘥙𘥚𘥛𘥜𘥝𘥞𘥟𘥠𘥡𘥢𘥣𘥤𘥥𘥦𘥧𘥨𘥩𘥪𘥫𘥬𘥭𘥮𘥯𘥰𘥱𘥲𘥳𘥴𘥵𘥶𘥷𘥸𘥹𘥺𘥻𘥼𘥽𘥾𘥿𘦀𘦁𘦂𘦃𘦄𘦅𘦆𘦇𘦈𘦉𘦊𘦋𘦌𘦍𘦎𘦏𘦐𘦑𘦒𘦓𘦔𘦕𘦖𘦗𘦘𘦙𘦚𘦛𘦜𘦝𘦞𘦟𘦠𘦡𘦢𘦣𘦤𘦥𘦦𘦧𘦨𘦩𘦪𘦫𘦬𘦭𘦮𘦯𘦰𘦱𘦲𘦳𘦴𘦵𘦶𘦷𘦸𘦹𘦺𘦻𘦼𘦽𘦾𘦿𘧀𘧁𘧂𘧃𘧄𘧅𘧆𘧇𘧈𘧉𘧊𘧋𘧌𘧍𘧎𘧏𘧐𘧑𘧒𘧓𘧔𘧕𘧖𘧗𘧘𘧙𘧚𘧛𘧜𘧝𘧞𘧟𘧠𘧡𘧢𘧣𘧤𘧥𘧦𘧧𘧨𘧩𘧪𘧫𘧬𘧭𘧮𘧯𘧰𘧱𘧲𘧳𘧴𘧵𘧶𘧷𘧸𘧹𘧺𘧻𘧼𘧽𘧾𘧿𘨀𘨁𘨂𘨃𘨄𘨅𘨆𘨇𘨈𘨉𘨊𘨋𘨌𘨍𘨎𘨏𘨐𘨑𘨒𘨓𘨔𘨕𘨖𘨗𘨘𘨙𘨚𘨛𘨜𘨝𘨞𘨟𘨠𘨡𘨢𘨣𘨤𘨥𘨦𘨧𘨨𘨩𘨪𘨫𘨬𘨭𘨮𘨯𘨰𘨱𘨲𘨳𘨴𘨵𘨶𘨷𘨸𘨹𘨺𘨻𘨼𘨽𘨾𘨿𘩀𘩁𘩂𘩃𘩄𘩅𘩆𘩇𘩈𘩉𘩊𘩋𘩌𘩍𘩎𘩏𘩐𘩑𘩒𘩓𘩔𘩕𘩖𘩗𘩘𘩙𘩚𘩛𘩜𘩝𘩞𘩟𘩠𘩡𘩢𘩣𘩤𘩥𘩦𘩧𘩨𘩩𘩪𘩫𘩬𘩭𘩮𘩯𘩰𘩱𘩲𘩳𘩴𘩵𘩶𘩷𘩸𘩹𘩺𘩻𘩼𘩽𘩾𘩿𘪀𘪁𘪂𘪃𘪄𘪅𘪆𘪇𘪈𘪉𘪊𘪋𘪌𘪍𘪎𘪏𘪐𘪑𘪒𘪓𘪔𘪕𘪖𘪗𘪘𘪙𘪚𘪛𘪜𘪝𘪞𘪟𘪠𘪡𘪢𘪣𘪤𘪥𘪦𘪧𘪨𘪩𘪪𘪫𘪬𘪭𘪮𘪯𘪰𘪱𘪲𘪳𘪴𘪵𘪶𘪷𘪸𘪹𘪺𘪻𘪼𘪽𘪾𘪿𘫀𘫁𘫂𘫃𘫄𘫅𘫆𘫇𘫈𘫉𘫊𘫋𘫌𘫍𘫎𘫏𘫐𘫑𘫒𘫓𘫔𘫕𘫖𘫗𘫘𘫙𘫚𘫛𘫜𘫝𘫞𘫟𘫠𘫡𘫢𘫣𘫤𘫥𘫦𘫧𘫨𘫩𘫪𘫫𘫬𘫭𘫮𘫯𘫰𘫱𘫲</div>
+      <div id="kar-Ujo">𘠀𘠁𘠂𘠃𘠄𘠅𘠆𘠇𘠈𘠉𘠊𘠋𘠌𘠍𘠎𘠏𘠐𘠑𘠒𘠓𘠔𘠕𘠖𘠗𘠘𘠙𘠚𘠛𘠜𘠝𘠞𘠟𘠠𘠡𘠢𘠣𘠤𘠥𘠦𘠧𘠨𘠩𘠪𘠫𘠬𘠭𘠮𘠯𘠰𘠱𘠲𘠳𘠴𘠵𘠶𘠷𘠸𘠹𘠺𘠻𘠼𘠽𘠾𘠿𘡀𘡁𘡂𘡃𘡄𘡅𘡆𘡇𘡈𘡉𘡊𘡋𘡌𘡍𘡎𘡏𘡐𘡑𘡒𘡓𘡔𘡕𘡖𘡗𘡘𘡙𘡚𘡛𘡜𘡝𘡞𘡟𘡠𘡡𘡢𘡣𘡤𘡥𘡦𘡧𘡨𘡩𘡪𘡫𘡬𘡭𘡮𘡯𘡰𘡱𘡲𘡳𘡴𘡵𘡶𘡷𘡸𘡹𘡺𘡻𘡼𘡽𘡾𘡿𘢀𘢁𘢂𘢃𘢄𘢅𘢆𘢇𘢈𘢉𘢊𘢋𘢌𘢍𘢎𘢏𘢐𘢑𘢒𘢓𘢔𘢕𘢖𘢗𘢘𘢙𘢚𘢛𘢜𘢝𘢞𘢟𘢠𘢡𘢢𘢣𘢤𘢥𘢦𘢧𘢨𘢩𘢪𘢫𘢬𘢭𘢮𘢯𘢰𘢱𘢲𘢳𘢴𘢵𘢶𘢷𘢸𘢹𘢺𘢻𘢼𘢽𘢾𘢿𘣀𘣁𘣂𘣃𘣄𘣅𘣆𘣇𘣈𘣉𘣊𘣋𘣌𘣍𘣎𘣏𘣐𘣑𘣒𘣓𘣔𘣕𘣖𘣗𘣘𘣙𘣚𘣛𘣜𘣝𘣞𘣟𘣠𘣡𘣢𘣣𘣤𘣥𘣦𘣧𘣨𘣩𘣪𘣫𘣬𘣭𘣮𘣯𘣰𘣱𘣲𘣳𘣴𘣵𘣶𘣷𘣸𘣹𘣺𘣻𘣼𘣽𘣾𘣿𘤀𘤁𘤂𘤃𘤄𘤅𘤆𘤇𘤈𘤉𘤊𘤋𘤌𘤍𘤎𘤏𘤐𘤑𘤒𘤓𘤔𘤕𘤖𘤗𘤘𘤙𘤚𘤛𘤜𘤝𘤞𘤟𘤠𘤡𘤢𘤣𘤤𘤥𘤦𘤧𘤨𘤩𘤪𘤫𘤬𘤭𘤮𘤯𘤰𘤱𘤲𘤳𘤴𘤵𘤶𘤷𘤸𘤹𘤺𘤻𘤼𘤽𘤾𘤿𘥀𘥁𘥂𘥃𘥄𘥅𘥆𘥇𘥈𘥉𘥊𘥋𘥌𘥍𘥎𘥏𘥐𘥑𘥒𘥓𘥔𘥕𘥖𘥗𘥘𘥙𘥚𘥛𘥜𘥝𘥞𘥟𘥠𘥡𘥢𘥣𘥤𘥥𘥦𘥧𘥨𘥩𘥪𘥫𘥬𘥭𘥮𘥯𘥰𘥱𘥲𘥳𘥴𘥵𘥶𘥷𘥸𘥹𘥺𘥻𘥼𘥽𘥾𘥿𘦀𘦁𘦂𘦃𘦄𘦅𘦆𘦇𘦈𘦉𘦊𘦋𘦌𘦍𘦎𘦏𘦐𘦑𘦒𘦓𘦔𘦕𘦖𘦗𘦘𘦙𘦚𘦛𘦜𘦝𘦞𘦟𘦠𘦡𘦢𘦣𘦤𘦥𘦦𘦧𘦨𘦩𘦪𘦫𘦬𘦭𘦮𘦯𘦰𘦱𘦲𘦳𘦴𘦵𘦶𘦷𘦸𘦹𘦺𘦻𘦼𘦽𘦾𘦿𘧀𘧁𘧂𘧃𘧄𘧅𘧆𘧇𘧈𘧉𘧊𘧋𘧌𘧍𘧎𘧏𘧐𘧑𘧒𘧓𘧔𘧕𘧖𘧗𘧘𘧙𘧚𘧛𘧜𘧝𘧞𘧟𘧠𘧡𘧢𘧣𘧤𘧥𘧦𘧧𘧨𘧩𘧪𘧫𘧬𘧭𘧮𘧯𘧰𘧱𘧲𘧳𘧴𘧵𘧶𘧷𘧸𘧹𘧺𘧻𘧼𘧽𘧾𘧿𘨀𘨁𘨂𘨃𘨄𘨅𘨆𘨇𘨈𘨉𘨊𘨋𘨌𘨍𘨎𘨏𘨐𘨑𘨒𘨓𘨔𘨕𘨖𘨗𘨘𘨙𘨚𘨛𘨜𘨝𘨞𘨟𘨠𘨡𘨢𘨣𘨤𘨥𘨦𘨧𘨨𘨩𘨪𘨫𘨬𘨭𘨮𘨯𘨰𘨱𘨲𘨳𘨴𘨵𘨶𘨷𘨸𘨹𘨺𘨻𘨼𘨽𘨾𘨿𘩀𘩁𘩂𘩃𘩄𘩅𘩆𘩇𘩈𘩉𘩊𘩋𘩌𘩍𘩎𘩏𘩐𘩑𘩒𘩓𘩔𘩕𘩖𘩗𘩘𘩙𘩚𘩛𘩜𘩝𘩞𘩟𘩠𘩡𘩢𘩣𘩤𘩥𘩦𘩧𘩨𘩩𘩪𘩫𘩬𘩭𘩮𘩯𘩰𘩱𘩲𘩳𘩴𘩵𘩶𘩷𘩸𘩹𘩺𘩻𘩼𘩽𘩾𘩿𘪀𘪁𘪂𘪃𘪄𘪅𘪆𘪇𘪈𘪉𘪊𘪋𘪌𘪍𘪎𘪏𘪐𘪑𘪒𘪓𘪔𘪕𘪖𘪗𘪘𘪙𘪚𘪛𘪜𘪝𘪞𘪟𘪠𘪡𘪢𘪣𘪤𘪥𘪦𘪧𘪨𘪩𘪪𘪫𘪬𘪭𘪮𘪯𘪰𘪱𘪲𘪳𘪴𘪵𘪶𘪷𘪸𘪹𘪺𘪻𘪼𘪽𘪾𘪿𘫀𘫁𘫂𘫃𘫄𘫅𘫆𘫇𘫈𘫉𘫊𘫋𘫌𘫍𘫎𘫏𘫐𘫑𘫒𘫓𘫔𘫕𘫖𘫗𘫘𘫙𘫚𘫛𘫜𘫝𘫞𘫟𘫠𘫡𘫢𘫣𘫤𘫥𘫦𘫧𘫨𘫩𘫪𘫫𘫬𘫭𘫮𘫯𘫰𘫱𘫲</div>
 
       <!-- 调节 -->
       <div id="Gus"><i></i></div>
@@ -184,81 +102,147 @@
 
     <!-- 编辑区 -->
     <div id="Redakti">
-      <div id="IPT">
-
-        <div id="flView">
+      <!-- 文本功能 -->
+      <input type="radio" name="ebloj" id="red-bn" hidden checked>
+      <input type="radio" name="ebloj" id="noto-bn" hidden>
+      <div id="IPT" class="eng">
+        <div id="Enigo">
+          <label for="red-bn">Red</label>
+          <label for="noto-bn">Noto</label>
           <input type="file" id="flv" accept=".yaml, .yml, .json" onchange="flEgu(this.files)">
         </div>
-        <div id="storage">
-          <input type="text" id="llname" placeholder="localStorage">
-          <button onclick="Sargi()">Storage</button>
-        </div>
-        <div id="KS">.</div>
-
+        <div id="KS">·</div>
       </div>
-      <div class="Ujo" id="EDT" contenteditable="true">right areo</div>
-    </div>
 
+      <div id="red-Ujo" class="tags" data-tag="red">
+        <div id="EDT-are">
+          <div class="bngup">
+            <button onclick="flSavi(daj('#EDT'),'EDT.json')">Savi-Fl</button>
+            <button onclick="lokaSavi('EDT',daj('#EDT'))">Storage Edt</button>
+          </div>
+          <div id="EDT" contenteditable="true">..</div>
+        </div>
+      </div>
+      <div id="noto-Ujo" class="tags" data-tag="noto">
+        <div class="bngup">
+          <button onclick="lokaSavi('Notoz',daj('#Noto'))">Storage Noto</button>
+        </div>
+        <div id="Noto" contenteditable="true">123</div>
+      </div>
+
+    </div>
   </div>
 
 
-
-
   <!-- script -->
-  <script src="res/lumo.tmp.js"></script>
-  <script src="res/dict.ilo.js"></script>
+  <script src="res/scr/lumo.ilo.js"></script>
   <script>
-    // Tangut Unicode.
-    const U= 0x17000;
-    const N= 0x187ff;
-    const K= 0x18aff;
-
-    // swap Ciuj & Parto.
-    function swap(ju){
-      // const val= ju? TGK.split('\n'):TGC.split('\n');
-      const val= ju? TGK:TGC;
-      document.querySelector('#Karaktero > .Ujo').innerText= val;
-
-      const ciuj= document.querySelector('#Ciuj').getAttribute('class');
-      const parto= document.querySelector('#Parto').getAttribute('class');
-      const sele1= ju? ciuj.concat(' sele '): ciuj.replace(' sele ', ' ');
-      const sele2= ju? parto.replace(' sele ', ' '): parto.concat(' sele ');
-
-        document.querySelector('#Ciuj').setAttribute('class', sele1);
-        document.querySelector('#Parto').setAttribute('class', sele2);
-
-        // console.log(sele1,1,sele2)
-
-      // if(ju){
-      //   document.querySelector('#Ciuj').classList.remove('sele');
-      //   document.querySelector('#Parto').classList.add('sele');
-      // }else{
-      //   document.querySelector('#Ciuj').classList.add('sele');
-      //   document.querySelector('#Parto').classList.remove('sele');
-      // }
-    }
-
-
+    const ul= 'https://jsonbox.io/box_81b17cf9a9af588af65b';
+    document.querySelector('#EDT').innerText= lokaVidon('EDT');
     // localStorage print.
     for(let i=0; i<=localStorage.length; i++){
-      document.querySelector('#KS').innerHTML+= `<a href="javascript: lls(${i})">${localStorage.key(i)}</a>`
+      document.querySelector('#KS').innerHTML+= `<a href="javascript: lokaVidon(${i},'#kar-Ujo')" class="item">${localStorage.key(i)}</a>`
     }
-    function lls(obj){
-      a= localStorage.key(obj);
-      // console.log(localStorage.getItem(a))
-      document.querySelector('#Karaktero > .Ujo').innerText= localStorage.getItem(localStorage.key(obj));
-    }
-
-    // localStorage savi.
-    function Sargi(){
-      const name= document.querySelector('#llname').value;
-      const edt= document.querySelector('#EDT').innerText;
-      // console.log(name,edt)
-      localStorage.setItem(name, edt);
+    
+    function swap(jug){
+      const ujo= document.querySelector('#kar-Ujo');
+      jug? ujo.innerText= TGK:ujo.innerText= TGC;
     }
 
+    // localStorage execation.
+    function lokaSavi(name,ob){localStorage.setItem(name, ob)}
+    function lokaVidon(ori,div){
+      if(div){
+        document.querySelector(div).innerText= JSON.parse(localStorage.getItem(localStorage.key(ori)))
+      }else{return JSON.parse(localStorage.getItem(ori))}
+    }
+    function lokaVar(id){
+      const dar= JSON.parse(localStorage.getItem('kvar-kap'));
+      return dar[id]
+    }
 
+    // datumoj.
+    function daj(ob){
+      const dt= document.querySelector(ob).innerText;
+      return JSON.stringify(dt);
+    }
+    function kvar(){
+      const oba= ['#hor-ujo', '#var-ujo', '#sku-ujo', '#for-ujo', '#zig-ujo'];
+      const rar= [];
+        oba.forEach(d=> rar.push(document.querySelector(d).innerText));
+      return JSON.stringify(rar)
+    }
 
+    // file savi.
+    function flSavi(dj, flName= 'NUL.json'){
+      const B= new Blob([dj]);
+      const ln= document.createElement('a');
+        ln.style.display= 'none';
+        ln.download= flName;
+        ln.href= URL.createObjectURL(B);
+          document.body.appendChild(ln);
+          ln.click();
+          document.body.removeChild(ln);
+    }
+    function flEgu(ori, div= '#Noto'){
+      // const P= [];
+      const F= ori[0];
+      const R= new FileReader();
+        R.onload= function(){document.querySelector(div).innerText= this.result;}
+        R.readAsText(F, 'UTF-8')
+    }
+
+    // Chck div and script.
+    const EDT= `<div id="EDT-are">
+          <div class="bngup">
+            <button onclick="flSavi(daj('#EDT'),'EDT.json')">Savi-Fl</button>
+            <button onclick="lokaSavi('EDT',daj('#EDT'))">Storage Edt</button>
+          </div>
+          <div id="EDT" contenteditable="true">${lokaVidon('EDT')}</div>
+        </div>`;
+    const KVAR= `<div class="kvar-areo">
+    <div class="bngup">
+      <button onclick="flSavi(kvar(),'KKP.json')">Savi KKP</button>
+      <button onclick="lokaSavi('kvar-kap', kvar())">Storage kvar-kap</button>
+    </div>
+    <div id="kvar-table">
+    <div id="Hor" class="ka-row">
+      <div class="ka-title">横形</div>
+      <div id="hor-ujo" class="ka-column" contenteditable="true">${lokaVar(0)}</div>
+    </div>
+    <div id="Ver" class="ka-row">
+      <div class="ka-title">坚形</div>
+      <div id="var-ujo" class="ka-column" contenteditable="true">${lokaVar(1)}</div>
+    </div>
+    <div id="Sku" class="ka-row">
+      <div class="ka-title">撇形</div>
+      <div id="sku-ujo" class="ka-column" contenteditable="true">${lokaVar(2)}</div>
+    </div>
+    <div id="For" class="ka-row">
+      <div class="ka-title">捺形</div>
+      <div id="for-ujo" class="ka-column" contenteditable="true">${lokaVar(3)}</div>
+    </div>
+    <div id="Zig" class="ka-row">
+      <div class="ka-title">折形</div>
+      <div id="zig-ujo" class="ka-column" contenteditable="true">${lokaVar(4)}</div>
+    </div>
+    </div>
+  </div>`;
+    function ceko(jug){
+      const bn= document.querySelector('#cekos');
+      const div= document.querySelector('#red-Ujo');
+
+      if(jug){
+        bn.href= 'javascript: ceko(false)';
+        div.innerHTML= KVAR
+      }else{
+        bn.href= 'javascript: ceko(true)';
+        div.innerHTML= EDT
+      }
+    }
+    
+
+    // layout script.
     // Gus adjustment width.
     function Kx(){return parseInt(window.getComputedStyle(document.querySelector('#Karaktero')).width, 10)}
     document.querySelector('#Karaktero').style.width= Kx() + 'px';
@@ -279,37 +263,6 @@
         document.documentElement.removeEventListener('mouseup', halti);
       }
     });
-    
-    // file operation.
-    const flDaj= document.querySelector('#EDT').innerText;
-    function flSavi(
-      dj= JSON.stringify(flDaj),
-      flName= 'NUL.json'
-      ){
-        const B= new Blob([dj]);
-        const ln= document.createElement('a');
-          ln.style.display= 'none';
-          ln.download= flName;
-          ln.href= URL.createObjectURL(B);
-            document.body.appendChild(ln);
-            ln.click();
-            document.body.removeChild(ln);
-      }
-      // file clickout to edit.
-      function flEgu(org, prt= '#EDT'){
-        const P= [];
-        const F= org[0];
-        const R= new FileReader();
-          R.onload= function(){
-            document.querySelector(prt).innerText= this.result;
-            P.push(this.result)
-          }
-          R.readAsText(F, 'utf-8')
-
-        // return P.length >0? JSON.parse(P[0]):null
-        // console.log(P)
-      }
-
   </script>
 </body>
 </html>
