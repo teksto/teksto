@@ -2,8 +2,8 @@
 <html lang="zh-cmn-Hans">
 <head>
   <!-- informo gup -->
-  <meta name="keywords" content="🍋">
-  <meta name="description" content="🍋">
+  <meta name="keywords" content="🍍">
+  <meta name="description" content="🍍">
 
   <meta charset="UTF-8">
   <meta name="renderer" content="webkit">
@@ -13,56 +13,118 @@
   <!-- ne baidu transkodo -->
   <meta name="Cache-Control" content="no-siteapp">
 
-  <title>🍋</title>
+  <title>:ilo-kvarCode</title>
 
   <!-- icons -->
-  <link rel="icon" href="make/logo.png">
-  <link rel="apple-touch-icon" href="make/logo.png">
+  <link rel="icon" href="res/lumo.png">
+  <link rel="apple-touch-icon" href="res/lumo.png">
 
-  <!-- <link rel="stylesheet" href="core/🍋.css"> -->
   <style>
-    body{}
-
-    #Kvar{
-      display: grid;
-      grid-template-columns: repeat(12,1fr);
+    :root{
+      --cl: #237A57;
+      --ln: #348b68;
+      --ffm: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Ubuntu,Arial,sans-serif;
     }
 
-    .kb{
-      background-color: #e0e0e0;
-      min-width: 7rem;
-      max-width: 7rem;
-      display: flex;
+    :lang(tg){font-family: var(--ffm), tgk;}
+    body{margin: 0 auto; background-color: #f9f9f9; font-family: var(--ffm);}
+    a{text-decoration: none; color: var(--cl);}
+    a:hover{font-weight: 500; color: var(--ln);}
+    @font-face {
+      font-family: 'tgk';
+      src: url('res/font/tangut.woff2') format('woff2');
+      font-style: normal;
+      font-weight: normal;
     }
-    .kb > span{
-      min-width: 3rem;
-      font-size: 2.5rem;
-      line-height: 3rem;
-      text-align: center;
-      }
-    .kb > .key{flex: 1;}
+
+    #Kvar{width: 100%; display: grid; grid-template-columns: repeat(16,1fr);}
+    @media screen and (max-width: 1024px){#Kvar{grid-template-columns: repeat(12, 1fr);}}
+    @media screen and (max-width: 500px){#Kvar{grid-template-columns: repeat(3, 1fr);}}
+
+    .bl{border: 1px solid #e0e9ef; border-radius: .1rem; padding: .3rem .15rem; display: grid; grid-template-columns: 2rem auto; margin: .075rem; background-color: #fff;}
+    .vorto{font-size: 1.5rem; line-height: 1.8rem; display: flex; justify-content: center; align-items: center;}
+    .kodo{color: #a0a9af; font-size: .6rem; line-height: .9rem;}
+
+    .bl:hover{box-shadow: 3rem 0rem 1rem #a0a9af;}
+    .bl:focus > .vorto, .bl:hover > .vorto{font-weight: 500; color: var(--cl);}
+    .bl:last-child{box-shadow: none;}
+
+    /* .rimo{} */
+    .kvar{outline: 0;}
   </style>
 
 </head>
 <body>
-  <div id="Navigado">
-    <!-- 横竖撇捺拆 -->
-    <!-- level 1~5 -->
-  </div>
+  <div id="Kvar" class="container" lang="tg">
 
-  <!-- kvar edit areo -->
-  <div id="Kvar" class="container">
-
-    <!-- open -->
-    <div class="kb" id="tg17000">
-      <span>&#94208</span>
-      <div class="key">
-        <span id="rime">ABCSDD</span>
-        <span id="kbay">ABCD</span>
+    <!-- template -->
+    <div class="bl">
+      <div class="vorto" data-id="5786">𘍎</div>
+      <div class="kodo">
+        <div class="rimo">Cia</div>
+        <div class="kvar" contenteditable="true">URIN</div>
       </div>
     </div>
-    <!-- end -->
-
+    
   </div>
+
+
+  <div style="height: 1235px;">123</div>
+
+<script>
+  const U= 0x17000, N= 0x187ff;
+  
+  function tpBl(id,vt,rm,kv){return`<div class="bl">
+      <div class="vorto" data-id="${id}">${vt}</div>
+      <div class="kodo">
+        <div class="rimo">${rm}</div>
+        <div class="kvar" contenteditable="true">${kv}</div>
+      </div>
+    </div>`}
+  
+
+  // dome
+  // const tops= ()=> {return document.documentElement.scrollTop}
+  function tops(){
+    return document.documentElement && document.documentElement.scrollTop? document.documentElement.scrollTop:document.body.scrollTop
+  }
+  
+  // const hgs= () => {return document.body.clientHeight}
+  function hgs(){
+    // return Math.min(document.body.clientHeight, document.documentElement.clientHeight)
+    let a= document.body.clientHeight;
+    let b= document.documentElement.clientHeight;
+    
+    return a && b? Math.min(a,b): Math.max(a,b)
+    // return a && b? 'mins'+a:'maxs'+b
+    // return document.body.clientHeight && document.documentElement.clientHeight? 'min':'max'
+  }
+  // const whg= () => {return document.body.scrollHeight - document.documentElement.scrollHeight > 0? document.body.scrollHeight:document.documentElement.scrollHeight}
+  function whg(){
+    let shg= document.body? document.body.scrollHeight:0;
+    let bhg= document.documentElement? document.documentElement.scrollHeight:0;
+    return shg - bhg >0? shg:bhg
+  }
+
+  window.onscroll=function(){
+
+    // console.log(tops() + hgs(), whg()) 
+    let posa= tops() + hgs() +1;
+    let posb= tops() + hgs() -1;
+
+    console.log(posa-1)
+    let ah1= document.createElement('h1');
+      ah1.innerText= 123;
+      ah1.style.height= '56.25rem';
+
+    if(tops() + hgs() +1 == whg()){
+      console.log('ok', tops()+hgs());
+      
+      document.body.appendChild(ah1)
+     }
+  }
+  
+
+</script>
 </body>
 </html>
