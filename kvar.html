@@ -37,93 +37,126 @@
       font-weight: normal;
     }
 
-    #Kvar{width: 100%; display: grid; grid-template-columns: repeat(16,1fr);}
-    @media screen and (max-width: 1024px){#Kvar{grid-template-columns: repeat(12, 1fr);}}
-    @media screen and (max-width: 500px){#Kvar{grid-template-columns: repeat(3, 1fr);}}
+    #Kvar{width: 100%;}
+    .row{display: grid; grid-template-columns: repeat(16,1fr);}
+    @media screen and (max-width: 1600px){.row{grid-template-columns: repeat(12, 1fr);}}
+    @media screen and (max-width: 1024px){.row{grid-template-columns: repeat(8, 1fr);}}
+    @media screen and (max-width: 500px){.row{grid-template-columns: repeat(3, 1fr);}}
 
     .bl{border: 1px solid #e0e9ef; border-radius: .1rem; padding: .3rem .15rem; display: grid; grid-template-columns: 2rem auto; margin: .075rem; background-color: #fff;}
     .vorto{font-size: 1.5rem; line-height: 1.8rem; display: flex; justify-content: center; align-items: center;}
     .kodo{color: #a0a9af; font-size: .6rem; line-height: .9rem;}
 
-    .bl:hover{box-shadow: 3rem 0rem 1rem #a0a9af;}
+    .bl:hover, .bl:focus{transform: scale(1.5);}
+    .bl:hover{box-shadow: 1rem 1rem 1rem #a0a9af;}
     .bl:focus > .vorto, .bl:hover > .vorto{font-weight: 500; color: var(--cl);}
     .bl:last-child{box-shadow: none;}
 
     /* .rimo{} */
-    .kvar{outline: 0;}
+    .kvar{outline: 0; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; width: 3rem;}
+
+    #Sargi{text-align: center; margin: 3vh auto;}
+    button{appearance: none; border-style: none; outline: 0; background-color: #ffffff; font-size: 1rem; line-height: 1.8rem; border: 1px solid #e0e9ef; border-radius: .1rem; padding: 0 1.2rem;}
+    button:focus, button:hover{font-weight: 500; color: var(--cl);}
   </style>
 
 </head>
 <body>
   <div id="Kvar" class="container" lang="tg">
 
-    <!-- template -->
-    <div class="bl">
-      <div class="vorto" data-id="5786">𘍎</div>
-      <div class="kodo">
-        <div class="rimo">Cia</div>
-        <div class="kvar" contenteditable="true">URIN</div>
+    <div class="row">
+      <!-- template -->
+      <div class="bl" data-id="5786">
+        <div class="vorto">𘍎</div>
+        <div class="kodo">
+          <div class="rimo">萱拼：Cia</div>
+          <!-- <div class="kvar" contenteditable="true">URIN</div> -->
+          <div class="kvar">五笔：URIN</div>
+        </div>
       </div>
     </div>
+
+    <!-- lib dome -->
+    <div class="row" id="xprime"></div>
     
   </div>
 
+  <!-- Manlibro sargi. -->
+  <div id="Sargi" data-pages="1">
+    <button id="more" onclick="Multe(0x17100)">pull more.</button>
+  </div>
 
-  <div style="height: 1235px;">123</div>
 
 <script>
-  const U= 0x17000, N= 0x187ff;
-  
-  function tpBl(id,vt,rm,kv){return`<div class="bl">
-      <div class="vorto" data-id="${id}">${vt}</div>
-      <div class="kodo">
-        <div class="rimo">${rm}</div>
-        <div class="kvar" contenteditable="true">${kv}</div>
-      </div>
-    </div>`}
+  const U= 0x17000, N= 0x187ff, Pl= 0x100;
+  const div= document.querySelector('#Kvar');
+
+  const Pago= [];
+  for(let i=U; i<U+Pl; i++){Pago.push(i)}
+    div.innerHTML+= `<div class="row">${ Pago.map(d=> tpBl(d,d)).join('') }</div>`;
+
   
 
-  // dome
-  // const tops= ()=> {return document.documentElement.scrollTop}
-  function tops(){
-    return document.documentElement && document.documentElement.scrollTop? document.documentElement.scrollTop:document.body.scrollTop
-  }
-  
-  // const hgs= () => {return document.body.clientHeight}
-  function hgs(){
-    // return Math.min(document.body.clientHeight, document.documentElement.clientHeight)
-    let a= document.body.clientHeight;
-    let b= document.documentElement.clientHeight;
-    
-    return a && b? Math.min(a,b): Math.max(a,b)
-    // return a && b? 'mins'+a:'maxs'+b
-    // return document.body.clientHeight && document.documentElement.clientHeight? 'min':'max'
-  }
-  // const whg= () => {return document.body.scrollHeight - document.documentElement.scrollHeight > 0? document.body.scrollHeight:document.documentElement.scrollHeight}
-  function whg(){
-    let shg= document.body? document.body.scrollHeight:0;
-    let bhg= document.documentElement? document.documentElement.scrollHeight:0;
-    return shg - bhg >0? shg:bhg
-  }
-
+  // pulload.
   window.onscroll=function(){
+    sargi(Multe())
+  }
 
-    // console.log(tops() + hgs(), whg()) 
-    let posa= tops() + hgs() +1;
-    let posb= tops() + hgs() -1;
+  
+  // template
+  function tpBl(id,vt,rm=null,kv){return`<div class="bl" data-id="${id}">
+    <div class="vorto">${'&#'+vt}</div>
+    <div class="kodo">
+      <div class="rimo">${rm}</div>
+      <div class="kvar" contenteditable="true">${kv}</div>
+      </div>
+      </div>`}
+  // load more.
+  function Multe(){
+    let Po=[];
+    const sar= document.querySelector('#Sargi').dataset.pages;
+    const sp= sar * Pl;
+    const ads= +sar +1;
+    for(let i=U+sp; i<U+sp+Pl; i++){Po.push(i)}
 
-    console.log(posa-1)
-    let ah1= document.createElement('h1');
-      ah1.innerText= 123;
-      ah1.style.height= '56.25rem';
+    div.innerHTML+= `<div class="row">${Po.map(d=> tpBl(d,d)).join('')}</div>`;
+    document.querySelector('#Sargi').dataset.pages= ads
+  }
 
-    if(tops() + hgs() +1 == whg()){
-      console.log('ok', tops()+hgs());
+  // sarech id & unicode.
+  function seek(int){
+    const ob= int < 8000? seria(int):uni(int);
+  }
       
-      document.body.appendChild(ah1)
-     }
+  // Fundo sargi now bl.
+  function sargi(alvokado){
+    const bhg= Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
+    const vis= window.innerHeight || Math.min(document.documentElement.clientHeight, document.body.clientHeight);
+    const dis= window.pageXOffset || document.documentElement.scrollTop || document.body.scrollTop;
+    
+    if(bhg <= dis + vis +1){
+      // console.log('sargi: ', bhg, dis, vis) 
+      alvokado
+    }
+  }
+
+
+
+  // 匹配
+  const xpdj= { '𘞗': 'syeu','𘟇': 'lo','𘞼': 'sjix','𗴷': 'lax','𗀇': 'gjow','𗴼': 'khjiwx','𗵤': 'sjij','𗀀': 'do','𗄈': 'hyo','𗄊': 'hzjix','𗴽': 'lox','𗵏': 'bju','𗀅': 'zarx','𗀫': 'phoo','𗍥': 'gxjeuh','𗅈': 'tjeuhjx','𗀏': 'parx','𗀨': 'thyux','𗄛': 'berx','𗵘': 'qja','𗵚': 'bju','𗵕': 'beo','𗵲': 'rjor' }
+  const xpd= document.querySelector('#xprime');
+
+  for(let i in xpdj){
+    xpd.innerHTML+= `<div class="bl" data-id="${i.codePointAt()}">
+    <div class="vorto">${i}</div>
+    <div class="kodo">
+      <div class="rimo">${xpdj[i]}</div>
+      <div class="kvar" contenteditable="true">..</div>
+      </div>
+      </div>`
   }
   
+
 
 </script>
 </body>
