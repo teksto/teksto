@@ -137,12 +137,15 @@ h2{
       .ligilo{
         text-align: right;
         a{
-          margin-left: 1.8rem;
+          // margin-left: 1.8rem;
+          font-size: 1.2rem;
+          line-height: 1.8rem;
+          margin: .6rem 0 .6rem .6rem;
           &:hover{text-decoration: line-through;}
         }
       }
       @media (max-width: $screen){
-        width: 90vw;
+        width: 80vw;
         height: 60vh;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -163,6 +166,7 @@ h2{
         margin-bottom: 1.8rem;
       }
       .ska{
+        text-align: center;
         input{
           width: 80%;
           font-size: 1.2rem;
@@ -171,7 +175,7 @@ h2{
           border: 1px solid $gray;
           border-radius: .3rem;
           outline: 0;
-          // @media (max-width: $screen){width: 70%;}
+          @media (max-width: $screen){width: 65%;}
         }
         button{
           appearance: none;
