@@ -183,8 +183,7 @@ h2{
           background-color: $red;
           color: $white;
           outline: 0;
-          &:hover,
-          &:focus{
+          &:hover{
             background: none;
             color: $red;
           }
@@ -226,6 +225,8 @@ h2{
       column-gap: 1.2rem;
       column-count: 6;
       @media (max-width: 1500px){column-count: 5;}
+      @media (max-width: 1200px){column-count: 4;}
+      @media (max-width: 1024px){column-count: 3;}
       @media (max-width: $screen){column-count: 2;}
       @media (max-width: 500px){column-count: 1;}
 
@@ -243,17 +244,32 @@ h2{
         white-space: normal;
         break-inside: avoid;
 
+        &:focus,
+        &:hover{
+          transform: scale(1.5);
+          box-shadow: 0 1.2rem 1.5rem $gray-dark;
+
+          @media (max-width: $screen){
+            transform: none;
+            box-shadow: none;
+          }
+        }
+
         .card-hd{
-          // font-family: $tgs;
-          font-size: 15vw;
+          font-size: 8vw;
           text-align: center;
+          @media (max-width: $screen){font-size: 6rem;}
         }
         .card-def{
+          color: $gray-dark;
           font-family: $family;
+          font-size: 1rem;
+          line-height: 1.5rem;
+          margin-bottom: 1.2rem;
           // .ono{}
           // .sono{}
           // .kodo{}
-          // .dif{}
+          .dif{font-size: .9rem;}
 
           & span::before{content: '✦';}
           & span:first-child::before{content: '';}
@@ -307,6 +323,15 @@ h2{
 
         #enk{white-space: normal;}
         #dankon{
+          ul{
+            margin: 0 auto;
+            li{
+              font-family: $family;
+              font-size: .9rem;
+              line-height: 1.5rem;
+              margin: .5rem auto .1rem;
+            }
+          }
           a:hover{text-decoration: line-through;}
         }
         #copyright{
@@ -338,7 +363,7 @@ h2{
 // sup-style
 
 // common components
-.row{}
+// .row{}
 
 .spaco{
   @include centro;

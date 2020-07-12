@@ -72,8 +72,8 @@
       <div>
         <div class="montru" lang="tg">𘠀𘠁𘠂𘠃𘠄𘠅𘠆𘠇𘠈𘠉𘠊𘠋𘠌𘠍𘠎𘠏𘠐𘠑𘠒𘠓𘠔𘠕𘠖𘠗𘠘𘠙𘠚𘠛𘠜𘠝𘠞𘠟𘠠𘠡𘠢𘠣𘠤𘠥𘠦𘠧𘠨𘠩𘠪𘠫𘠬𘠭𘠮𘠯𘠰𘠱𘠲𘠳𘠴𘠵𘠶𘠷𘠸𘠹𘠺𘠻𘠼𘠽𘠾𘠿𘡀𘡁𘡂𘡃𘡄𘡅𘡆𘡇𘡈𘡉𘡊𘡋𘡌𘡍𘡎𘡏𘡐𘡑𘡒𘡓𘡔𘡕𘡖𘡗𘡘𘡙𘡚𘡛𘡜𘡝𘡞𘡟𘡠𘡡𘡢𘡣𘡤𘡥𘡦𘡧𘡨𘡩𘡪𘡫𘡬𘡭𘡮𘡯𘡰𘡱𘡲𘡳𘡴𘡵𘡶𘡷𘡸𘡹𘡺𘡻𘡼𘡽𘡾𘡿𘢀𘢁𘢂𘢃𘢄𘢅𘢆𘢇𘢈𘢉𘢊𘢋𘢌𘢍𘢎𘢏𘢐𘢑𘢒𘢓𘢔𘢕𘢖𘢗𘢘𘢙𘢚𘢛𘢜𘢝𘢞𘢟</div>
         <div class="ligilo">
-          <a href="#">首部件檢索</a>
-          <a href="#">西夏五筆（稿）</a>
+          <a href="keyboard.html">首部件檢索</a>
+          <a href="kvin.html">西夏五筆（稿）</a>
         </div>
       </div>
     </div>
@@ -110,17 +110,12 @@
           </div>
         </div>
         <div class="card">
-          <div class="card-hd">工</div>
+          <div class="card-hd">明</div>
           <div class="card-def">
-            <div class="ono">kasdas</div>
-            <div class="sono">lklaljada</div>
-            <div class="kodo">
-              <span>3030 30</span>
-              <span>0x17000</span>
-              <span>abcdee</span>
-              <span>abcd</span>
-            </div>
-            <div class="dif">虽adk唱碟</div>
+            <div class="kode">U+660E 6702 0</div>
+            <div class="sono">miŋ˧˥ 武兵</div>
+            <div class="ono">bright; clear; clear-sighted; honest; immediately; Ming;</div>
+            <div class="dif">1. 亮，与“暗”相对：～亮。～媚。～净。～鉴（ａ．明镜；ｂ．指可为借鉴的明显的前例；ｃ．明察）。～灭。～眸。～艳。～星。～珠暗投（喻怀才不遇或好人失足参加坏团伙，亦泛指珍贵的东西得不到赏识）。</div>
           </div>
         </div>
 
@@ -168,7 +163,6 @@
             <div id="copyright">
               <p id="CCA">CCA-a(996,901,907,31,52)</p>
               <p id="FGP">FGP(9):▗▘▙▚▛▜▝▞▟▖</p>
-              <p id="FGP-sup">²⁰₂₀⁰₇¹₂</p>
             </div>
           </div>
         </div>
@@ -182,21 +176,35 @@
   <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.0/dist/JsBarcode.all.min.js"></script>
   <script src="./res/scr/source/qrcode.min.js"></script>
   <script>
-    const kupDj=[1,2,3,4,5,6,7,8,9,11,12,13,14,15,16];
-    for(let i in kupDj){
-      document.querySelector('#sup-karto').innerHTML+= tpCard(i)
+    const DICT= [{"Ser": "6064", "Kvar": "8441 42", "Uni": "18774", "Otp": "gja̱", "Obk": "牙音，艾那切，娥。", "Eng": "one’s name", "Dif": " 1.【娥】人名 ✦譯音 2.嬌滴滴、撒嬌"},{"Ser": "6062", "Kvar": "8241 21", "Uni": "18371", "Otp": false, "Obk": false, "Eng": false, "Dif": "詫（同甲 36B45）"},{"Ser": "6065", "Kvar": "8545 74", "Uni": "1842E", "Otp": "gar", "Obk": "牙音，玉啰切，桀。", "Eng": "a surname", "Dif": " 1.【桀】族姓 ✦譯音 2.頭監"},{"Ser": "6068", "Kvar": "8822 44", "Uni": "186D1", "Otp": "tśhjiw", "Obk": "正齒音，赤油切，抽。", "Eng": "honest; upright; fairminded", "Dif": "正直 ✦形容詞"},{"Ser": "6066", "Kvar": "8721 52", "Uni": "1835B", "Otp": "tśjụ", "Obk": "正齒音，知垂切，詐。", "Eng": "a transliteration", "Dif": "【詐】 ✦譯音"},{"Ser": "6069", "Kvar": "8841 40", "Uni": "1844E", "Otp": "tjij", "Obk": "舌頭音，打寧切，丁。", "Eng": "a transliteration", "Dif": "【丁】 ✦譯音"},{"Ser": "6070", "Kvar": "8842 20", "Uni": "17BE3", "Otp": false, "Obk": false, "Eng": false, "Dif": "勞役（同丁 26A12）"},{"Ser": "6071", "Kvar": "8845 22", "Uni": "1844B", "Otp": "tewr", "Obk": "舌頭音，打特切，的。", "Eng": "a transliteration", "Dif": "【的】 ✦譯音"},{"Ser": "6072", "Kvar": "9724 24", "Uni": "1831D", "Otp": "pju", "Obk": "重唇音，百乳切，泊。", "Eng": "a transliteration", "Dif": "【泊】 ✦譯音"},{"Ser": "6073", "Kvar": "9854 00", "Uni": "17BD9", "Otp": false, "Obk": false, "Eng": false, "Dif": "割、折（同甲 25B72）"},{"Ser": "6076", "Kvar": "1274 82", "Uni": "187EE", "Otp": "źja", "Obk": false, "Eng": "a transliteration", "Dif": "【社】 ✦譯音"},{"Ser": "6074", "Kvar": "9972 44", "Uni": "180A7", "Otp": false, "Obk": false, "Eng": false, "Dif": "中、中間（同乙、丁 29B12）"},{"Ser": "6077", "Kvar": "9824 22", "Uni": "187EF", "Otp": "tsjwək", "Obk": false, "Eng": "a transliteration", "Dif": "【稷】 ✦譯音"},{"Ser": "6075", "Kvar": "1192 80", "Uni": "187ED", "Otp": "ya", "Obk": false, "Eng": "a transliteration", "Dif": "【雅】 ✦譯音"},{"Ser": "6067", "Kvar": "8722 40", "Uni": "1854D", "Otp": "tśhjiw", "Obk": "正齒音，赤油切，抽。", "Eng": "to speak bluntly", "Dif": "諍、直言、真話 ✦動詞"},{"Ser": "6013", "Kvar": "1545 24", "Uni": "17607", "Otp": "tśju", "Obk": "正齒音，枝乳切，朱。", "Eng": "a surname", "Dif": " 1.【豬】、【朱】、【褚】、【祖】族姓 ✦譯音 2.豬"},{"Ser": "6012", "Kvar": "1542 20", "Uni": "17D91", "Otp": "tśiwo", "Obk": "正齒音，至爍切，拙。", "Eng": "a transliteration", "Dif": "【拙】 ✦譯音"},{"Ser": "6006", "Kvar": "1044 44", "Uni": "1711A", "Otp": "tśiwə", "Obk": "正齒音，制鼠切，主。", "Eng": "a transliteration", "Dif": "【主】 ✦譯音"},{"Ser": "6016", "Kvar": "1742 22", "Uni": "18154", "Otp": "tśjwi", "Obk": "正齒音，折垂切，齜。", "Eng": "a transliteration", "Dif": "【齜】 ✦譯音"},{"Ser": "6017", "Kvar": "1742 42", "Uni": "18160", "Otp": "twu̱", "Obk": "舌頭音，等同切，禱。", "Eng": "a transliteration", "Dif": "【禱】 ✦譯音"},{"Ser": "6018", "Kvar": "1744 70", "Uni": "171F6", "Otp": "tśji̱j", "Obk": "正齒音，朱耶切，捉。", "Eng": "a transliteration", "Dif": "【捉】 ✦譯音"},{"Ser": "6019", "Kvar": "1745 20", "Uni": "18136", "Otp": "biwịj", "Obk": "重唇音，薄列切，匍。", "Eng": "a transliteration", "Dif": "【匍】 ✦譯音"},{"Ser": "6020", "Kvar": "1822 22", "Uni": "17C15", "Otp": false, "Obk": false, "Eng": "many", "Dif": "多 ✦形容詞"}];
+
+    for(let i in DICT){
+      let toHex= '0x'+DICT[i].Uni;
+      let txt= '&#'+ +toHex;
+      let kode= DICT[i].Ser +' '+ DICT[i].Kvar;
+      let otbk= DICT[i].Otp +' '+ DICT[i].Obk;
+      let pct= DICT[i].Eng;
+      let dif= DICT[i].Dif;
+      // console.log(txt, '@', kode, otbk, pct,dif) 
+      document.querySelector('#sup-karto').innerHTML+= tpCard(txt,kode,otbk,pct,dif)
     }
 
     // template
-    function tpCard(int){return`<div class="card">
-          <div class="card-hd">明</div>
+    function tpCard(txt, kode, otbk, pct, dif){return`<div class="card">
+          <div class="card-hd" lang="tg">${txt}</div>
           <div class="card-def">
-            <div class="ono">${int}</div>
-            <div class="sono">2</div>
-            <div class="kodo">3</div>
-            <div class="dif">4</div>
+            <div class="kodo">${kode}</div>
+            <div class="sono">${otbk}</div>
+            <div class="ono">${pct}</div>
+            <div class="dif">${dif}</div>
           </div>
         </div>`}
+
+    // onclick get to trad.app
+    function trad(){
+      const vl= document.querySelector('#trad').value;
+      window.location.href= 'trad.html#/Q/' + vl;
+    }
 
     // Qr code into.
     JsBarcode('.codebar').init();

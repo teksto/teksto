@@ -1,8 +1,7 @@
 // teksto.github.io_font-fmaliy
 
-:lang(tg){
-  font-family: 'tg kap';
-}
+:lang(tgk){font-family: 'tg kap';}
+:lang(tg){font-family: 'tg pleta';}
 
 @font-face{
   font-family: 'tg kap';
@@ -11,10 +10,17 @@
   font-display: swap;
 }
 
+@font-face{
+  font-family: 'tg pleta';
+  src: url('../font/tangut.woff2') format('woff2');
+  font-style: normal;
+  font-display: swap;
+}
+
 // http://www.hanyi.com.cn/productdetail?id=814
 @font-face{
   font-family: hy814;
-  src: url('../font/hy814.ttf') format('truetype');
+  src: url('../font/hy814.ttf') format('woff');
   font-style: normal;
   font-display: swap;
 }
