@@ -31,6 +31,32 @@
         <button  @click="keyboard">⌨</button>
         <button onclick="trad()">譯</button>
       </div>
+
+      <!-- vue createElement -->
+      <div id="keyboard" v-if="kbDiv">
+        <div class="row">
+          <div class="radiko">橫</div>
+          <div class="make"></div>
+        </div>
+        <div class="row">
+          <div class="radiko">豎</div>
+          <div class="make"></div>
+        </div>
+        <div class="row">
+          <div class="radiko">撇</div>
+          <div class="make"></div>
+        </div>
+        <div class="row">
+          <div class="radiko">捺</div>
+          <div class="make"></div>
+        </div>
+        <div class="row">
+          <div class="radiko">折</div>
+          <div class="make"></div>
+        </div>
+      </div>
+      <!-- !End -->
+      
       <div id="tip">
         <a href="#">關於譯語計劃</a>
         <a href="#">首部件查詢</a>
@@ -44,19 +70,12 @@
       
       <div class="sub-row">
         <div class="sub">我</div>
-        <div class="esp">
+        <div class="esp" lang="tg">
 
-          <div class="loro">
-            <div class="vorto">棋</div>
+          <div class="loro" v-for="i in dict">
+            <div class="vorto">{{'0x'+i.Uni}}</div>
             <div class="sig">
-              <p>adas</p>
-              <p>adas</p>
-            </div>
-          </div>
-          <div class="loro">
-            <div class="vorto">棋</div>
-            <div class="sig">
-              <p>adas</p>
+              <p>{{i.Def}}</p>
               <p>adas</p>
             </div>
           </div>
@@ -71,57 +90,32 @@
     <div id="copyright">
       <p>晚菘<a href="#">·</a>译语计划</p>
     </div>
-    <!-- vue createElement -->
-    <div id="keyboard" v-if="kbDiv">
-      <div class="row">
-        <div class="radiko">橫</div>
-        <div class="make"></div>
-      </div>
-      <div class="row">
-        <div class="radiko">豎</div>
-        <div class="make"></div>
-      </div>
-      <div class="row">
-        <div class="radiko">撇</div>
-        <div class="make"></div>
-      </div>
-      <div class="row">
-        <div class="radiko">捺</div>
-        <div class="make"></div>
-      </div>
-      <div class="row">
-        <div class="radiko">折</div>
-        <div class="make"></div>
-      </div>
-    </div>
-    <!-- !End -->
+    
   </div>
 
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue-router@3.3.4/dist/vue-router.min.js"></script>
 <script>
-  const dj=[{"Seria": "6064", "Kvar": "8441 42", "Unicode": "18774", "Minor": "gja̱", "Tranci": "牙音，艾那切，娥。", "Eng": "one’s name", "Interpreto": " 1.【娥】人名 ✦譯音 2.嬌滴滴、撒嬌"}
-,{"Seria": "6062", "Kvar": "8241 21", "Unicode": "18371", "Minor": false, "Tranci": false, "Eng": false, "Interpreto": "詫（同甲 36B45）"}
-,{"Seria": "6065", "Kvar": "8545 74", "Unicode": "1842E", "Minor": "gar", "Tranci": "牙音，玉啰切，桀。", "Eng": "a surname", "Interpreto": " 1.【桀】族姓 ✦譯音 2.頭監"}
-,{"Seria": "6068", "Kvar": "8822 44", "Unicode": "186D1", "Minor": "tśhjiw", "Tranci": "正齒音，赤油切，抽。", "Eng": "honest; upright; fairminded", "Interpreto": "正直 ✦形容詞"}
-,{"Seria": "6066", "Kvar": "8721 52", "Unicode": "1835B", "Minor": "tśjụ", "Tranci": "正齒音，知垂切，詐。", "Eng": "a transliteration", "Interpreto": "【詐】 ✦譯音"}
-,{"Seria": "6069", "Kvar": "8841 40", "Unicode": "1844E", "Minor": "tjij", "Tranci": "舌頭音，打寧切，丁。", "Eng": "a transliteration", "Interpreto": "【丁】 ✦譯音"}];
+  const dictDj=[{"Id":"6064","Kvin":"8441 42","Uni":"18774","Otp":"gja̱","Tra":"牙音，艾那切，娥。","Eng":"one’s name","Def":" 1.【娥】人名 ✦譯音 2.嬌滴滴、撒嬌"},{"Id":"6062","Kvin":"8241 21","Uni":"18371","Otp":false,"Tra":false,"Eng":false,"Def":"詫（同甲 36B45）"},{"Id":"6065","Kvin":"8545 74","Uni":"1842E","Otp":"gar","Tra":"牙音，玉啰切，桀。","Eng":"a surname","Def":" 1.【桀】族姓 ✦譯音 2.頭監"},{"Id":"6068","Kvin":"8822 44","Uni":"186D1","Otp":"tśhjiw","Tra":"正齒音，赤油切，抽。","Eng":"honest; upright; fairminded","Def":"正直 ✦形容詞"},{"Id":"6066","Kvin":"8721 52","Uni":"1835B","Otp":"tśjụ","Tra":"正齒音，知垂切，詐。","Eng":"a transliteration","Def":"【詐】 ✦譯音"},{"Id":"6069","Kvin":"8841 40","Uni":"1844E","Otp":"tjij","Tra":"舌頭音，打寧切，丁。","Eng":"a transliteration","Def":"【丁】 ✦譯音"}];
 
 
 new Vue({
   el: "#Trad",
   data:{
-    kbDiv: true
+    kbDiv: true,
+    dict: dictDj
   },
   methods:{
-    keyboard: function(){this.kbDiv= this.kbDiv === false ? true:false}
+    keyboard: function(){this.kbDiv= this.kbDiv === false ? true:false},
   }
 })
 
-
-
+// custom function.
 function key(){}
+
+function trad(str){}
+function seek(keyword){}
 
 </script>
 </body>
