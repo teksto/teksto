@@ -70,6 +70,7 @@ h2{
         line-height: 1.2rem;
       }
       &:first-child::before{content: '';}
+      &:last-child{margin-bottom: 3rem;}
     }
   }
 }
@@ -129,11 +130,17 @@ h2{
 
     & > div{
       width: 75vw;
-      font-size: 1.8rem;
-      line-height: 3.2rem;
-
-      white-space: normal;
-
+      .montru{
+        font-size: 1.8rem;
+        line-height: 3.2rem;
+        white-space: normal;
+        @media (max-width: $screen){
+          // overflow: hidden;
+          // text-overflow: ellipsis;
+          font-size: 1.2rem;
+          line-height: 2rem;
+        }
+      }
       .ligilo{
         text-align: right;
         a{
@@ -143,14 +150,6 @@ h2{
           margin: .6rem 0 .6rem .6rem;
           &:hover{text-decoration: line-through;}
         }
-      }
-      @media (max-width: $screen){
-        width: 80vw;
-        height: 60vh;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        font-size: 1.2rem;
-        line-height: 2rem;
       }
     }
   }
@@ -322,10 +321,14 @@ h2{
         grid-template-columns: repeat(3, 1fr);
         
         margin: .3rem auto 1rem;
+        padding-bottom: .6rem;
         border-top: 1px solid $dark;
         border-bottom: 1px solid $gray-light;
 
-        #enk{white-space: normal;}
+        #enk{
+          white-space: normal;
+          font-family: $family;
+        }
         #dankon{
           ul{
             margin: 0 auto;
