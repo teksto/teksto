@@ -1,0 +1,352 @@
+@import "baze";
+@import "faru";
+@import "animacio";
+
+body{
+  margin: 0 auto;
+  color: $dark;
+  font-family: $family;
+  height: calc(100vh - 1.2rem);
+  @media (max-width: $screen){height: 100vh;}
+}
+a{
+  color: $dark;
+  text-decoration: none;
+  &:hover{
+    color: $true-black;
+  }
+}
+h1{
+  font-weight: 500;
+  margin: 1.2rem auto .3rem;
+}
+h2{
+  font-weight: 500;
+  margin: .9rem auto .1rem;
+}
+
+// function
+@mixin centro{
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// navigation
+#Navigado{
+  z-index: 990;
+  height: 100%;
+  width: 3rem;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  // position: sticky;
+  position: fixed;
+  font-size: 1.5rem;
+  line-height: 3rem;
+  font-family: $kaiti;
+  background-color: $white;
+  box-shadow: .3rem 0 .9rem $dark;
+
+  
+  #logo{
+    animation: lumo 3s infinite;
+    img{max-width: 2.8rem;}
+  }
+  #nav-bar{
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: calc(100vh - 3rem);
+    padding: 0 0 .9rem 0;
+    
+    -webkit-overflow-scrolling: touch;
+    &::-webkit-scrollbar{display: none;}
+
+    .item{
+      writing-mode: vertical-lr;
+      &::before{
+        content: '✦';
+        font-size: 1rem;
+        line-height: 1.2rem;
+      }
+      &:first-child::before{content: '';}
+    }
+  }
+}
+
+// layout
+#Teksto{
+  height: 100%;
+  margin-left: 3rem;
+  font-family: $kaiti;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  max-height: 100vh;
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  white-space: nowrap;
+  // display: flex;
+  display: inline-flex;
+  // scroll-snap-type: x mandatory;
+
+  -webkit-overflow-scrolling: touch;
+  &::-webkit-scrollbar{display: none;}
+
+  #Unu{
+    // display: flex;
+    background-color: #fffff0;
+    #foto{
+      margin: 1.2rem;
+      height: calc(100% - 2.4rem);
+      img{max-height: 100%;}
+    }
+
+    #testo{
+      // flex: 1;
+      width: 60vw;
+      font-size: 3rem;
+      text-align: center;
+
+      .anm:hover{animation: jelly 2s infinite both;}
+    }
+    @media (max-width: $screen){width: auto;}
+  }
+
+  // Cabbage
+  #Cabbage{
+    background-color: $green;
+    & > div{
+      color: $white;
+      text-align: center;
+    }
+  }
+  #Kvin{
+    background-color: #CDDCDC;
+    background-image: radial-gradient(at 50% 100%, rgba(255,255,255,0.50) 0%, rgba(0,0,0,0.50) 100%), linear-gradient(to bottom, rgba(255,255,255,0.25) 0%, rgba(0,0,0,0.25) 100%);
+    background-blend-mode: screen, overlay;
+
+    & > div{
+      width: 75vw;
+      font-size: 1.8rem;
+      line-height: 3.2rem;
+
+      white-space: normal;
+
+      .ligilo{
+        text-align: right;
+        a{
+          margin-left: 1.8rem;
+          &:hover{text-decoration: line-through;}
+        }
+      }
+      @media (max-width: $screen){
+        width: 90vw;
+        height: 60vh;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 1.2rem;
+        line-height: 2rem;
+      }
+    }
+  }
+  #Traduki{
+    @include centro;
+    background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+
+    & > div{
+      width: 60vw;
+      .header{
+        font-size: 3.8rem;
+        text-align: center;
+        margin-bottom: 1.8rem;
+      }
+      .ska{
+        input{
+          width: 80%;
+          font-size: 1.2rem;
+          line-height: 1.8rem;
+          padding: .6rem .9rem;
+          border: 1px solid $gray;
+          border-radius: .3rem;
+          outline: 0;
+          // @media (max-width: $screen){width: 70%;}
+        }
+        button{
+          appearance: none;
+          border-style: none;
+          border-radius: .3rem;
+          font-size: 1.2rem;
+          line-height: 1.8rem;
+          padding: .6rem .9rem;
+          background-color: $red;
+          color: $white;
+          outline: 0;
+          &:hover,
+          &:focus{
+            background: none;
+            color: $red;
+          }
+        }
+      }
+      .slog{
+        font-size: 1.2rem;
+        line-height: 1.8rem;
+      }
+      @media (max-width: $screen){
+        width: 90vw;
+        .input{width: 70%;}
+        .slog{
+          white-space: normal;
+          padding-right: 1.2rem;
+        }
+      }
+    }
+  }
+
+  // Papago
+  #Papago{
+    background-color: darken($red, 15%);
+    & > div{
+      color: $white;
+      text-align: center;
+    }
+  }
+  #Karto{
+    display: block;
+    overflow-y: scroll;
+    &::-webkit-scrollbar{display: none;}
+
+    & > div{
+      margin: auto 1rem;
+      width: calc(100vw - 3rem - 2rem);
+      // height: 100%;
+      // columns: 20rem;
+      column-gap: 1.2rem;
+      column-count: 6;
+      @media (max-width: 1500px){column-count: 5;}
+      @media (max-width: $screen){column-count: 2;}
+      @media (max-width: 500px){column-count: 1;}
+
+      .card{
+        max-width: 380px;
+        // min-width: 350px;
+        // min-height: 18rem;
+        margin: .6rem auto;
+        padding: .6rem;
+        border-radius: .3rem;
+        border: 1px solid $gray-light;
+        background-color: $true-white;
+        box-shadow: .3rem .6rem .9rem $gray;
+
+        white-space: normal;
+        break-inside: avoid;
+
+        .card-hd{
+          // font-family: $tgs;
+          font-size: 15vw;
+          text-align: center;
+        }
+        .card-def{
+          font-family: $family;
+          // .ono{}
+          // .sono{}
+          // .kodo{}
+          // .dif{}
+
+          & span::before{content: '✦';}
+          & span:first-child::before{content: '';}
+        }
+
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        .bildo{
+          img{max-width: 75%;}
+        }
+      }
+    }
+  }
+
+  // Glyph
+  #Glyph{}
+  #Sigelo{}
+  #JZP{
+    background-image: url('../jzp.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  // Pri
+  #Pri{
+    background-color: $white;
+    @media (max-width: $screen){
+      display: block;
+      overflow-y: scroll;
+    }
+    
+    & > div{
+      width: 60vw;
+      
+      #qrSec{
+        text-align: right;
+        & > svg{
+          border: 1px solid $gray-light;
+          border-radius: .1rem;
+        }
+      }
+      
+      #sur{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        
+        margin: .3rem auto 1rem;
+        border-top: 1px solid $dark;
+        border-bottom: 1px solid $gray-light;
+
+        #enk{white-space: normal;}
+        #dankon{
+          a:hover{text-decoration: line-through;}
+        }
+        #copyright{
+          font-family: $family;
+          font-size: .9rem;
+          line-height: 1.5rem;
+          p{margin: .5rem auto .1rem;}
+        }
+      }
+
+      #vendotablo{
+        color: $gray;
+        font-size: .9rem;
+        line-height: 1.2rem;
+      }
+      
+      @media (max-width: $screen){
+        width: 80vw;
+        height: auto;
+        padding: .6rem;
+        margin-left: 3rem;
+        #sur{grid-template-columns: repeat(1, 1fr);}
+      }
+    }
+  }
+}
+
+
+// sup-style
+
+// common components
+.row{}
+
+.spaco{
+  @include centro;
+  flex: 1;
+  
+  height: 100%;
+  vertical-align: top;
+  // scroll-snap-align: center;
+  
+  width: calc(100vw - 3rem);
+}

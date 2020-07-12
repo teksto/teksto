@@ -32,3 +32,6 @@ $true-black: #000000;
 
 $font-family: -apple-system, BinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif!default;
 $font-kaiti: hy814, KaiTi!default;
+
+$family: $font-family;
+$kaiti:  $font-kaiti, $font-family;
