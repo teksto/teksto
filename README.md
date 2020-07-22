@@ -1,39 +1,45 @@
 ![teksto_logo](res/teksto_god.png)
 
 ```
-掃盡煙塵散
-殘碑通古今
-一筆橫折勾
-鐵線織輿鏡
+掃盡煙塵散  殘碑通古今
+一筆橫折勾  鐵線織輿鏡
 ```
 
-# 计划
-以西夏文为先导，探寻三朝文字的秘密。上启甲骨卜辞，下达假名、谚文。往西的越过沙漠是别一个世界，以简少的字母拼写出万千的语言，但她们的起点也是有着庞大的象形系统。
-
-## 晚菘
+# 晚菘
 ![cabbage_project](res/cabbage.png)
 
-意图编制一套[五笔](docs/KvinTangut.md)输入方案。
+研究字形结构的组成与分解方式，实现对西夏文、辽金大小字以及女书等的不同编码形式。
 
-- [编辑器](https://teksto.github.io/ilo.html)
-- ~~[参与五笔编码表的制定](https://teksto.github.io/#/kvin)~~
+第一计划主要是研究基于五笔方式的西夏文输入法编码实现（基于Rime平台的码表制作），后期希望结合韵音实现混合码表的实现。
 
-## 鹦鹉学舌计划
+- [蕃字五笔（稿）](docs/KvinTangut.md)
+<!--
+- ~~关于辽金大小字的类五笔实现（草案）~~
+- ~~女书拼写（草案）~~
+-->
+
+# 鹦鹉学舌
 ![papago_project](res/papago.png)
 
-一个[词卡计划](https://teksto.github.io/cabbage/)，分为多卷。
+以小程序<sub>（以及基于PWA的App）</sub>实现一个词卡（以西夏文为主，后期增加辽、金、女书及其它象形字）。
 
-- 第一卷：西夏文。
-- ~~第二卷：女书。~~
-- ~~第三卷：契丹、女真。~~
-- ~~第四卷：字母卷。~~
-- ~~第五卷：单词卷。~~
+- [鹦鹉学舌<sub>小程序</sub>](https://teksto.github.io/#/app)
+- [鹦鹉学舌<sub>webApp</sub>](https://app.teksto.site/)
 
-*暂时以 webapp/PWA 方式实现，稍晚推出小程序的实现。*
+<!-- ![Papago_Wechat](res/papago_wechat.png) -->
 
-# 参考
-- [古今文字集成](http://ccamc.co/)
-- [西夏文·萱拼](https://weibo.com/p/1008080acc76e854d554cc6b3bd749c30dbef8/super_index)
+<!--
+# 造字·字形库
+
+**“造字”** 一个依靠基础组件构建在线字形的在线应用。
+
+**字形库** 是依拖造字产生的字形的在线输入输出应用（仅于web端使用）。
+-->
 
 # 文档
 - [文档导航](/docs/)
+
+# 参考
+- [BabelStone](https://www.babelstone.co.uk/)
+- [古今文字集成](http://ccamc.co/)
+<!-- - [造字](https://github.com/teksto/faru) -->
