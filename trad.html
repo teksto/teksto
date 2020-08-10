@@ -31,38 +31,26 @@
         <button  @click="keyboard">⌨</button>
         <button onclick="trad()">譯</button>
       </div>
-
-      <!-- vue createElement -->
-      <div id="keyboard" v-if="kbDiv">
-        <div class="row">
-          <div class="radiko">橫</div>
-          <div class="make"></div>
-        </div>
-        <div class="row">
-          <div class="radiko">豎</div>
-          <div class="make"></div>
-        </div>
-        <div class="row">
-          <div class="radiko">撇</div>
-          <div class="make"></div>
-        </div>
-        <div class="row">
-          <div class="radiko">捺</div>
-          <div class="make"></div>
-        </div>
-        <div class="row">
-          <div class="radiko">折</div>
-          <div class="make"></div>
-        </div>
-      </div>
-      <!-- !End -->
-      
+      <!-- navigado -->
       <div id="tip">
         <a href="#">關於譯語計劃</a>
         <a href="#">首部件查詢</a>
         <a href="#">字根碼表（稿）</a>
         <a href="#">五筆（稿）</a>
         <a href="#">Unicode字體</a>
+      </div>
+      <!-- keyboard -->
+      <div id="keyboard">
+        <div id="key-kap">
+          <div class="column">横</div>
+          <div class="column">豎</div>
+          <div class="column">撇</div>
+          <div class="column">捺</div>
+          <div class="column">折</div>
+        </div>
+        <div id="key-board">
+          <div id="key-row">𘠀𘠁𘠂𘠃𘠄𘠅𘠆𘠇𘠈𘠉𘠊𘠋𘠌𘠍𘠎𘠏𘠐𘠑𘠒𘠓𘠔𘠕𘠖𘠗𘠘𘠙𘠚𘠛𘠜𘠝𘠞𘠟𘠠𘠡𘠢𘠣𘠤𘠥𘠦𘠧𘠨𘠩𘠪𘠫𘠬𘠭𘠮𘠯𘠰𘠱𘠲𘠳𘠴𘠵𘠶𘠷𘠸𘠹𘠺𘠻𘠼𘠽𘠾𘠿𘡀𘡁𘡂𘡃𘡄𘡅𘡆𘡇𘡈𘡉𘡊𘡋𘡌𘡍𘡎𘡏𘡐𘡑𘡒𘡓𘡔𘡕𘡖𘡗𘡘𘡙𘡚𘡛𘡜𘡝𘡞𘡟𘡠𘡡𘡢𘡣𘡤𘡥𘡦𘡧𘡨𘡩𘡪𘡫𘡬𘡭𘡮𘡯𘡰𘡱𘡲𘡳𘡴𘡵𘡶𘡷𘡸𘡹𘡺𘡻𘡼𘡽𘡾𘡿𘢀𘢁𘢂𘢃𘢄𘢅𘢆𘢇𘢈𘢉𘢊𘢋𘢌𘢍𘢎𘢏𘢐𘢑𘢒𘢓𘢔𘢕𘢖𘢗𘢘𘢙𘢚𘢛𘢜𘢝𘢞𘢟</div>
+        </div>
       </div>
     </div>
     

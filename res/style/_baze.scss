@@ -1,4 +1,9 @@
-$screen: 800px;
+$mac:  5120px;
+$pc: 1440px;
+$web: 1280px;
+$pad: 1080px;
+$screen: 640px;
+$watch: 320px;
 
 $red: #f43f3b;
 $orange: #ff9700;
@@ -35,3 +40,4 @@ $font-kaiti: hy814, KaiTi!default;
 
 $family: $font-family;
 $kaiti:  $font-kaiti, $font-family;
+$tangut: 'tg pleta', $font-family!default;

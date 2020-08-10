@@ -1,17 +1,114 @@
 // teksto.github.io_Translate
-@import "baze";
 @import "faru";
+@import "baze";
 
 body{
   color: $dark;
-  display: flex;
   margin: 0 auto;
   min-height: 100vh;
   font-family: $font-family;
   background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-// layout
+#Trad{
+  width: 60vw;
+  @media (max-width: $screen){width: 90vw;}
+}
+
+#kaplinio{
+  text-align: center;
+  h1{
+    font-size: 3.8rem;
+    font-weight: 500;
+    font-family: $kaiti;
+  }
+  #trad-form{
+    display: grid;
+    grid-template-columns: auto 3rem 3rem;
+    input,
+    button{
+      appearance: none;
+      outline: 0;
+      font-size: 1.5rem;
+      // padding: .3rem .6rem;
+      border: 1px solid $white;
+      font-family: $kaiti;
+    }
+    input{
+      padding: .6rem .9rem;
+      border-radius: .3rem 0 0 .3rem;
+    }
+    button{
+      color: $white;
+      padding: .6rem;
+      background-color: $red;
+      &:hover,
+      &:focus{
+        color: $red;
+        background-color: $white;
+      }
+      &:last-child{
+        border-radius: 0 .3rem .3rem 0;
+      }
+    }
+    @media (max-width: $screen){
+      grid-template-columns: 65vw 3rem 3rem;
+    }
+  }
+  #tip{
+    margin: .9rem;
+    font-size: .9rem;
+    line-height: 1.2rem;
+    a{
+      color: $dark;
+      text-decoration: none;
+      &:hover{color: $blue;}
+      &::after{
+        content: ' |';
+        &:last-child::after{content: '';}
+      }
+    }
+  }
+  #keyboard{
+    border-radius: .1rem;
+    background-color: $white;
+    font-family: $tangut;
+  }
+}
+
+#presi{
+  margin: 1.2rem auto;
+  padding: .3rem .6rem;
+  border-radius: .1rem;
+  background-color: $white;
+  font-family: $tangut;
+}
+
+#copyright{
+  color: mix($dark, $blue);
+  text-align: center;
+}
+
+.sub-row{
+  display: grid;
+  grid-template-columns: 3rem auto 3rem;
+  .sub{}
+  .esp{
+    display: flex;
+    // grid-template-columns: repeat(6, 1fr);
+    .loro{
+      flex: 1 0 0;
+    }
+  }
+  .def{}
+}
+
+
+
+/* / layout
 #Trad{
   margin: auto;
   #kaplinio{
@@ -189,3 +286,4 @@ body{
     }
   }
 }
+*/
